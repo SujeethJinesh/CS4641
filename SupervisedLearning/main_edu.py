@@ -1,4 +1,4 @@
-from sklearn import svm
+from sklearn import svm, tree
 
 from data_processing import getCleanData
 from supervised_learning_algorithms import run_supervised_algo_single, run_supervised_algo_multi
@@ -8,7 +8,9 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
+import statistics as s
 import pandas as pd
+
 
 def main():
     # attributes
@@ -57,25 +59,27 @@ def main():
     # 4. SVM ✔
     # 5. KNN ✔
 
-    algos = [DecisionTreeClassifier(max_depth=30), AdaBoostClassifier(n_estimators=30), SVC(),
-             KNeighborsClassifier(n_neighbors=20)]  # , MLPClassifier(solver='lbfgs', alpha=1e-5)]#, ExtraTreesClassifier()]
+    import ipdb; ipdb.set_trace()
+    algos = [DecisionTreeClassifier(), AdaBoostClassifier(n_estimators=30), SVC(),
+             KNeighborsClassifier(
+                 n_neighbors=20)]  # , MLPClassifier(solver='lbfgs', alpha=1e-5)]#, ExtraTreesClassifier()]
 
     print("Overall\n")
 
     for algo in algos:
         accuracies = []
         for i in range(20):
-            accuracy, _, _ = run_supervised_algo_single(math_data, 'G3', algo)
+            accuracy, _, _ = run_supervised_algo_single(por_data, 'G3', algo)
             accuracies.append(accuracy)
-        print(algo, "\n", max(accuracies), "\n\n")
+        print(algo, "\n", s.mean(accuracies), "\n\n")
 
     accuracies = []
     for hidden_layers in range(1, 300):
-        accuracy, _, _ = run_supervised_algo_single(math_data, 'G3',
+        accuracy, _, _ = run_supervised_algo_single(por_data, 'G3',
                                                     MLPClassifier(solver='lbfgs', alpha=1e-5,
                                                                   hidden_layer_sizes=hidden_layers))
         accuracies.append((accuracy, hidden_layers))
-    accuracy, depth = max(accuracies)
+    accuracy, depth = s.mean(accuracies)
     print("Neural Net\n", accuracy, " Num Hidden Nodes: ", depth, "\n\n")
 
     # print("Feature Selection\n")
