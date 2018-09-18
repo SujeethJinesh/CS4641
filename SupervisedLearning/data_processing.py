@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn import preprocessing
+import numpy as np
 
 
 def _binaryOneHot(df, attribute_map):
@@ -51,8 +52,20 @@ def _multiOneHot(df, attribute_list):
     return df
 
 
+def missing_data_fixer(df, missing_data_marker, to_impute):
+    df = df.replace(missing_data_marker, np.nan)
+    # df.applymap(lambda x: np.nan if x == missing_data_marker else x)
+    df.drop(['level_0', 'index'], inplace=True, axis=1, errors='ignore')
+    if to_impute:
+        df.fillna(df.mean())
+    else:
+        df.dropna(axis=0, inplace=True) #drop rows with missing data
+    # import ipdb; ipdb.set_trace()
+    return df
+
+
 def getCleanData(file_path, attributes, binary_one_hot_map=None, normalize_list=None, multi_one_hot_list=None,
-                 cols_to_drop=None, row_num_to_drop=None):
+                 cols_to_drop=None, row_num_to_drop=None, missing_data_marker=None, to_impute=None):
     """
     :return: Cleaned data
     """
@@ -79,6 +92,10 @@ def getCleanData(file_path, attributes, binary_one_hot_map=None, normalize_list=
     # one-hot encode multiple categorical values
     if not (multi_one_hot_list is None):
         data = _multiOneHot(data, multi_one_hot_list)
+
+    # missing data marker
+    if not (missing_data_marker is None):
+        data = missing_data_fixer(data, missing_data_marker, to_impute)
 
     return data
 

@@ -2,15 +2,18 @@ from sklearn import svm, tree
 
 from data_processing import getCleanData
 from supervised_learning_algorithms import run_supervised_algo_single, run_supervised_algo_multi
-from sklearn.svm import SVC, LinearSVR
+from sklearn.svm import SVC, LinearSVC
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
 from operator import itemgetter
 import statistics as s
 import pandas as pd
+
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 def main():
@@ -19,9 +22,9 @@ def main():
              'Wife\'s now working?', 'Husband\'s occupation', 'Standard-of-living index', 'Media exposure', 'Contraceptive method used']
 
     binary_one_hot_map = {
-        # "Wife's religion": [0, 1],
-        # "Wife's now working?": [0, 1],
-        # "Media exposure": [0, 1]
+        "Wife's religion": [0, 1],
+        "Wife's now working?": [0, 1],
+        "Media exposure": [0, 1]
     }
 
     # might want to consider separating people by age band, might make it easier to identify relationships.
@@ -29,7 +32,7 @@ def main():
     ]
 
     multi_one_hot_list = [
-        # "Wife's education", "Husband's education", "Husband's occupation", "Standard-of-living index", "Contraceptive method used"
+        "Wife's education", "Husband's education", "Husband's occupation", "Standard-of-living index"
     ]
 
     contraceptive_path = 'data/contraceptive/cmc.data'
@@ -39,14 +42,14 @@ def main():
 
     # CheckList
     # 1. Decision Tree with pruning ✔
-    # 2. Neural Network ✔
-    # 3. Boosted Decision Tree ✔
-    # 4. SVM ✔
-    # 5. KNN ✔
+    # 2. Neural Network
+    # 3. Boosted Decision Tree
+    # 4. SVM
+    # 5. KNN
 
     # import ipdb; ipdb.set_trace()
     algos = [DecisionTreeClassifier(criterion='entropy'), DecisionTreeClassifier(criterion='entropy', min_samples_split=100, min_samples_leaf=50, max_depth=10),
-             AdaBoostClassifier(n_estimators=30), SVC(), KNeighborsClassifier(n_neighbors=20)]  # , MLPClassifier(solver='lbfgs', alpha=1e-5)]#, ExtraTreesClassifier()]
+             AdaBoostClassifier(n_estimators=500), GradientBoostingClassifier(n_estimators=500, max_depth=1), SVC(), LinearSVC(), KNeighborsClassifier(n_neighbors=20)]  # , MLPClassifier(solver='lbfgs', alpha=1e-5)]#, ExtraTreesClassifier()]
 
     print("Description\n")
     print(contraceptive_data.describe())
