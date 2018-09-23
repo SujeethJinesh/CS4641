@@ -1,9 +1,12 @@
 import numpy as np
 import pandas as pd
-from graphing import plot, plot_learning_curve
+from graphing import plot, plot_learning_curve, plot_confusion_matrix
 
 from sklearn import model_selection, preprocessing, tree
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import confusion_matrix
+from sklearn.neural_network import MLPClassifier
+import subprocess
 
 
 def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
@@ -27,6 +30,21 @@ def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
 
     if type(classifier) == DecisionTreeClassifier:
         tree.export_graphviz(classifier)
+        subprocess.call('dot -Tpng tree.dot -o tree.png', shell=True)
+        plot_learning_curve(classifier, "Breast Cancer Decision Tree Learning Curve", X, y)
+
+        y_pred = classifier.predict(X_test)
+        cm = confusion_matrix(y_test, y_pred)
+        plot_confusion_matrix(cm, ["Benign", "Malignant"], title="Breast Cancer Decision Tree Confusion Matrix")
+        # import ipdb; ipdb.set_trace()
+
+    if type(classifier) == MLPClassifier:
+        plot_learning_curve(classifier, "Breast Cancer Neural Net Learning Curve", X, y)
+
+        y_pred = classifier.predict(X_test)
+        cm = confusion_matrix(y_test, y_pred)
+        plot_confusion_matrix(cm, ["Benign", "Malignant"], title="Breast Cancer Neural Net Confusion Matrix")
+        import ipdb; ipdb.set_trace()
 
     confidence = classifier.score(X_test, y_test)  # (test)
 

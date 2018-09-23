@@ -43,14 +43,14 @@ def main():
                                cols_to_drop=['Sample code number'], normalizer_type='min_max')
 
     # CheckList
-    # 1. Decision Tree with pruning ✔
+    # 1. Decision Tree with pruning
     # 2. Neural Network
     # 3. Boosted Decision Tree
     # 4. SVM
     # 5. KNN
 
     # import ipdb; ipdb.set_trace()
-    algos = [DecisionTreeClassifier(criterion='entropy', min_samples_split=8, min_samples_leaf=4, max_depth=10),
+    algos = [DecisionTreeClassifier(criterion='entropy', min_samples_split=8, min_samples_leaf=4, max_depth=5),
              AdaBoostClassifier(n_estimators=500), GradientBoostingClassifier(n_estimators=500, max_depth=1), SVC(),
              LinearSVC(), KNeighborsClassifier(
             n_neighbors=20)]  # , MLPClassifier(solver='lbfgs', alpha=1e-5)]#, ExtraTreesClassifier()]
@@ -91,27 +91,29 @@ def main():
 
     # import ipdb; ipdb.set_trace()
 
-    for algo in algos:
-        accuracies = []
-        for i in range(20):
-            # accuracy, _, _ = run_supervised_algo_single(contraceptive_data, ['Contraceptive method used_1', 'Contraceptive method used_2',
-            #                                                                  'Contraceptive method used_3'], algo)
-            # import ipdb; ipdb.set_trace()
-            accuracy, _, _ = run_supervised_algo_single(cancer_data, ['Class'], algo)
-            accuracies.append(accuracy)
-        print(algo, "\n", s.mean(accuracies), "\n\n")
+    # for algo in algos:
+    #     accuracies = []
+    #     for i in range(20):
+    #         # accuracy, _, _ = run_supervised_algo_single(contraceptive_data, ['Contraceptive method used_1', 'Contraceptive method used_2',
+    #         #                                                                  'Contraceptive method used_3'], algo)
+    #         # import ipdb; ipdb.set_trace()
+    #         accuracy, _, _ = run_supervised_algo_single(cancer_data, ['Class'], algo)
+    #         accuracies.append(accuracy)
+    #     print(algo, "\n", s.mean(accuracies), "\n\n")
 
-    accuracies_layers = []
-    accuracies = []
-    for hidden_layers in range(1, 100):
-        accuracy, _, _ = run_supervised_algo_single(cancer_data, 'Class',
-                                                    MLPClassifier(solver='lbfgs', alpha=1e-5,
-                                                                  hidden_layer_sizes=hidden_layers))
-        accuracies.append(accuracy)
-        accuracies_layers.append((accuracy, hidden_layers))
-    # import ipdb; ipdb.set_trace()
-    accuracy, depth = max(accuracies_layers, key=itemgetter(1))
-    print("Neural Net\n", accuracy, " Num Hidden Nodes: ", depth, "\n\n")
+    # accuracies_layers = []
+    # accuracies = []
+    # for hidden_layers in range(1, 10):
+    #     accuracy, _, _ = run_supervised_algo_single(cancer_data, 'Class',
+    #                                                 MLPClassifier(solver='lbfgs', alpha=1e-5,
+    #                                                               hidden_layer_sizes=hidden_layers))
+    #     accuracies.append(accuracy)
+    #     accuracies_layers.append((accuracy, hidden_layers))
+    run_supervised_algo_single(cancer_data, 'Class', MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=4))
+
+    import ipdb; ipdb.set_trace()
+    # accuracy, depth = max(accuracies_layers, key=itemgetter(0))
+    # print("Neural Net\n", accuracy, " Num Hidden Nodes: ", depth, "\n\n")
 
     # print("Feature Selection\n")
     #
