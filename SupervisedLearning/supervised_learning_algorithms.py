@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from graphing import plot
+from graphing import plot, plot_learning_curve
 
 from sklearn import model_selection, preprocessing, tree
 from sklearn.tree import DecisionTreeClassifier
@@ -22,6 +22,8 @@ def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
         y_test = y_test.astype('int')
 
     classifier.fit(X_train, y_train)  # does the prediction (training)
+
+    # import ipdb; ipdb.set_trace()
 
     if type(classifier) == DecisionTreeClassifier:
         tree.export_graphviz(classifier)

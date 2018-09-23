@@ -19,7 +19,7 @@ def _binaryOneHot(df, attribute_map):
     return df
 
 
-def _normalizer(df, attribute_list):
+def _normalizer(df, attribute_list, normalizer_type=None):
     """
         Takes in list of attributes
         Ex:
@@ -29,9 +29,13 @@ def _normalizer(df, attribute_list):
     # for normalizing
     min_max_scaler = preprocessing.MinMaxScaler()
 
+    # import ipdb; ipdb.set_trace()
+
     for attribute in attribute_list:
-        # df_scaled = min_max_scaler.fit_transform(df[attribute].astype(int).values.reshape(-1, 1))
-        df_scaled = preprocessing.normalize(df[attribute].astype(float).values.reshape(-1, 1))
+        if not normalizer_type:
+            df_scaled = preprocessing.normalize(df[attribute].astype(float).values.reshape(-1, 1))
+        elif normalizer_type == 'min_max':
+            df_scaled = min_max_scaler.fit_transform(df[attribute].astype(int).values.reshape(-1, 1))
         df[attribute] = df_scaled
 
     return df
@@ -65,7 +69,7 @@ def missing_data_fixer(df, missing_data_marker, to_impute):
 
 
 def getCleanData(file_path, attributes, binary_one_hot_map=None, normalize_list=None, multi_one_hot_list=None,
-                 cols_to_drop=None, row_num_to_drop=None, missing_data_marker=None, to_impute=None):
+                 cols_to_drop=None, row_num_to_drop=None, missing_data_marker=None, to_impute=None, normalizer_type=None):
     """
     :return: Cleaned data
     """
@@ -81,21 +85,21 @@ def getCleanData(file_path, attributes, binary_one_hot_map=None, normalize_list=
     if not (row_num_to_drop is None):
         data.drop(data.index[row_num_to_drop], inplace=True)
 
+    # missing data marker
+    if not (missing_data_marker is None):
+        data = missing_data_fixer(data, missing_data_marker, to_impute)
+
     # replace binary variables with 1/0
     if not (binary_one_hot_map is None):
         data = _binaryOneHot(data, binary_one_hot_map)
 
     # normalize values to prevent them from having too much of a weight
     if not (normalize_list is None):
-        data = _normalizer(data, normalize_list)
+        data = _normalizer(data, normalize_list, normalizer_type=normalizer_type)
 
     # one-hot encode multiple categorical values
     if not (multi_one_hot_list is None):
         data = _multiOneHot(data, multi_one_hot_list)
-
-    # missing data marker
-    if not (missing_data_marker is None):
-        data = missing_data_fixer(data, missing_data_marker, to_impute)
 
     return data
 
