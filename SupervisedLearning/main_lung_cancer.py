@@ -92,7 +92,7 @@ def main():
     # for i in range(1, 10):
     #     for j in np.linspace(0.01, 1, 10):
     #         accuracy, _, _ = run_supervised_algo_single(cancer_data, [1],
-    #                                                     AdaBoostClassifier(base_estimator=DecisionTreeClassifier(criterion='entropy', min_samples_split=8, min_samples_leaf=4,
+    #                                                     AdaBoostClassifier(base_estimator=DecisionTreeClassifier(criterion='entropy', min_samples_split=3, min_samples_leaf=1,
     #                                                                            max_depth=10), n_estimators=500, learning_rate=j, random_state=1))
     #         accuracies.append((accuracy, i, j))
     #
@@ -100,10 +100,10 @@ def main():
 
     # run_supervised_algo_single(cancer_data, [1],
     #                            AdaBoostClassifier(
-    #                                base_estimator=DecisionTreeClassifier(criterion='entropy', min_samples_split=8,
-    #                                                                      min_samples_leaf=4,
+    #                                base_estimator=DecisionTreeClassifier(criterion='entropy', min_samples_split=3,
+    #                                                                      min_samples_leaf=1,
     #                                                                      max_depth=10), n_estimators=500,
-    #                                learning_rate=0.56, random_state=1))
+    #                                learning_rate=0.34, random_state=1))
     #
     # import ipdb;
     # ipdb.set_trace()
@@ -118,16 +118,26 @@ def main():
     # print("done", "\n", max(accuracies), "\n\n")
 
     # run_supervised_algo_single(cancer_data, [1],
+    #                            SVC(random_state=1))
+    #
+    # import ipdb; ipdb.set_trace()
+
+    # run_supervised_algo_single(cancer_data, [1],
     #                            SVC())
 
     # KNN
     # accuracies = []
-    # for i in range(1, 11):
+    # for i in range(1, 10):
     #         accuracy, _, _ = run_supervised_algo_single(cancer_data, [1],
     #                                                 KNeighborsClassifier(n_neighbors=i))
     #         accuracies.append((accuracy, i))
     #
     # print("done", "\n", max(accuracies), "\n\n")
+
+    accuracy, _, _ = run_supervised_algo_single(cancer_data, [1],
+                                                KNeighborsClassifier(n_neighbors=1))
+
+    import ipdb; ipdb.set_trace()
 
     # run_supervised_algo_single(cancer_data, [1], KNeighborsClassifier(n_neighbors=6))
 
@@ -143,20 +153,22 @@ def main():
 
     # Neural Net
 
-    accuracies_layers = []
-    accuracies = []
-    for hidden_layers in range(1, 20):
-        accuracy, _, _ = run_supervised_algo_single(cancer_data, [1],
-                                                    MLPClassifier(solver='lbfgs', alpha=1e-5,
-                                                                  hidden_layer_sizes=hidden_layers))
-        accuracies.append(accuracy)
-        accuracies_layers.append((accuracy, hidden_layers))
-    # run_supervised_algo_single(cancer_data, 1, MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=4))
+    # accuracies_layers = []
+    # accuracies = []
+    # for hidden_layers in range(1, 20):
+    #     accuracy, _, _ = run_supervised_algo_single(cancer_data, [1],
+    #                                                 MLPClassifier(solver='lbfgs', alpha=1e-5,
+    #                                                               hidden_layer_sizes=hidden_layers))
+    #     accuracies.append(accuracy)
+    #     accuracies_layers.append((accuracy, hidden_layers))
+    # # run_supervised_algo_single(cancer_data, 1, MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=4))
+    #
+    # accuracy, depth = max(accuracies_layers, key=itemgetter(0))
+    # print("Neural Net\n", accuracy, " Num Hidden Nodes: ", depth, "\n\n")
 
-    accuracy, depth = max(accuracies_layers, key=itemgetter(0))
-    print("Neural Net\n", accuracy, " Num Hidden Nodes: ", depth, "\n\n")
+    # run_supervised_algo_single(cancer_data, 1, MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=13))
 
-    import ipdb; ipdb.set_trace()
+    # import ipdb; ipdb.set_trace()
 
     # print("Feature Selection\n")
     #
