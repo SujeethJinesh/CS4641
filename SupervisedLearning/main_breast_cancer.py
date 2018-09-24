@@ -50,29 +50,23 @@ def main():
     # 4. SVM
     # 5. KNN
 
-    # import ipdb; ipdb.set_trace()
-    algos = [DecisionTreeClassifier(criterion='entropy', min_samples_split=8, min_samples_leaf=4, max_depth=5),
-             AdaBoostClassifier(n_estimators=500), SVC(),
-             LinearSVC(), KNeighborsClassifier(
-            n_neighbors=20)]  # , MLPClassifier(solver='lbfgs', alpha=1e-5)]#, ExtraTreesClassifier()]
+    print("Description\n")
+    desc = cancer_data.describe()
+    print(desc)
 
-    # print("Description\n")
-    # desc = cancer_data.describe()
-    # print(desc)
-    #
-    # desc.to_html('describe.html')
-    # subprocess.call(
-    #     'wkhtmltoimage -f png --width 0 describe.html describe.png', shell=True)
-    #
-    # print("Correlations\n")
-    # correlation = cancer_data.corr()
-    # print(correlation)
-    #
-    # correlation.to_html('correlation.html')
-    # subprocess.call(
-    #     'wkhtmltoimage -f png --width 0 correlation.html correlation.png', shell=True)
-    #
-    # print("Overall\n")
+    desc.to_html('describe.html')
+    subprocess.call(
+        'wkhtmltoimage -f png --width 0 describe.html describe.png', shell=True)
+
+    print("Correlations\n")
+    correlation = cancer_data.corr()
+    print(correlation)
+
+    correlation.to_html('correlation.html')
+    subprocess.call(
+        'wkhtmltoimage -f png --width 0 correlation.html correlation.png', shell=True)
+
+    print("Overall\n")
 
     # Decision Tree
     # accuracies = []
@@ -103,15 +97,12 @@ def main():
     #
     # print("done", "\n", max(accuracies), "\n\n")
 
-    # run_supervised_algo_single(cancer_data, ['Class'],
-    #                            AdaBoostClassifier(
-    #                                base_estimator=DecisionTreeClassifier(criterion='entropy', min_samples_split=8,
-    #                                                                      min_samples_leaf=4,
-    #                                                                      max_depth=10), n_estimators=500,
-    #                                learning_rate=0.56, random_state=1))
-    #
-    # import ipdb;
-    # ipdb.set_trace()
+    run_supervised_algo_single(cancer_data, ['Class'],
+                               AdaBoostClassifier(
+                                   base_estimator=DecisionTreeClassifier(criterion='entropy', min_samples_split=8,
+                                                                         min_samples_leaf=4,
+                                                                         max_depth=10), n_estimators=500,
+                                   learning_rate=0.56, random_state=1))
 
     # SVM
     # accuracies = []
@@ -122,8 +113,8 @@ def main():
     #
     # print("done", "\n", max(accuracies), "\n\n")
 
-    # run_supervised_algo_single(cancer_data, ['Class'],
-    #                            SVC())
+    run_supervised_algo_single(cancer_data, ['Class'],
+                               SVC())
 
     # KNN
     # accuracies = []
@@ -134,7 +125,7 @@ def main():
     #
     # print("done", "\n", max(accuracies), "\n\n")
 
-    # run_supervised_algo_single(cancer_data, ['Class'], KNeighborsClassifier(n_neighbors=6))
+    run_supervised_algo_single(cancer_data, ['Class'], KNeighborsClassifier(n_neighbors=6))
 
     # for algo in algos:
     #     accuracies = []
@@ -156,27 +147,8 @@ def main():
     #                                                               hidden_layer_sizes=hidden_layers))
     #     accuracies.append(accuracy)
     #     accuracies_layers.append((accuracy, hidden_layers))
-    # run_supervised_algo_single(cancer_data, 'Class', MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=4))
 
-    # import ipdb; ipdb.set_trace()
-    # accuracy, depth = max(accuracies_layers, key=itemgetter(0))
-    # print("Neural Net\n", accuracy, " Num Hidden Nodes: ", depth, "\n\n")
-
-    # print("Feature Selection\n")
-    #
-    # for algo in algos:
-    #     print(algo, "\n\n")
-    #     run_supervised_algo_multi(math_data, 'G3', algo)
-    #     print("\n\n")
-
-    # call supervised learning algos here
-    # run_supervised_algo_multi(math_data, 'G3', LinearRegression())
-    # run_supervised_algo_multi(math_data, 'G3', DecisionTreeClassifier(), as_int=True)
-    # run_supervised_algo_multi(math_data, 'G3', RandomForestClassifier(n_estimators=10), as_int=True)
-    # run_supervised_algo_multi(math_data, 'G3', AdaBoostClassifier(), as_int=True)
-    # run_supervised_algo_multi(math_data, 'G3', GradientBoostingClassifier(), as_int=True)
-    # accuracy = run_supervised_algo_single(math_data, 'G3', MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 63), random_state=1))
-    # print(accuracy)
+    run_supervised_algo_single(cancer_data, 'Class', MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=4))
 
 
 if __name__ == "__main__":

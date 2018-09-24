@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 import subprocess
 import numpy as np
 
+
 def main():
     # attributes
     attrs = range(1, 58)
@@ -25,7 +26,7 @@ def main():
     }
 
     # might want to consider separating people by age band, might make it easier to identify relationships.
-    normalize_list = []  # range(1, 58)
+    normalize_list = []
 
     multi_one_hot_list = [
     ]
@@ -33,7 +34,8 @@ def main():
     cancer_path = 'data/lung_cancer/lung-cancer.data'
 
     cancer_data = getCleanData(cancer_path, attrs, binary_one_hot_map=binary_one_hot_map, normalize_list=normalize_list,
-                               multi_one_hot_list=multi_one_hot_list, missing_data_marker='?', to_impute=False, normalizer_type='min_max')
+                               multi_one_hot_list=multi_one_hot_list, missing_data_marker='?', to_impute=False,
+                               normalizer_type='min_max')
 
     # CheckList
     # 1. Decision Tree with pruning
@@ -48,23 +50,23 @@ def main():
     #          LinearSVC(), KNeighborsClassifier(
     #         n_neighbors=20)]  # , MLPClassifier(solver='lbfgs', alpha=1e-5)]#, ExtraTreesClassifier()]
 
-    # print("Description\n")
-    # desc = cancer_data.describe()
-    # print(desc)
-    #
-    # desc.to_html('describe_lung.html')
-    # subprocess.call(
-    #     'wkhtmltoimage -f png --width 0 describe_lung.html describe_lung.png', shell=True)
-    #
-    # print("Correlations\n")
-    # correlation = cancer_data.corr()
-    # print(correlation)
-    #
-    # correlation.to_html('correlation_lung.html')
-    # subprocess.call(
-    #     'wkhtmltoimage -f png --width 0 correlation_lung.html correlation_lung.png', shell=True)
-    #
-    # print("Overall\n")
+    print("Description\n")
+    desc = cancer_data.describe()
+    print(desc)
+
+    desc.to_html('describe_lung.html')
+    subprocess.call(
+        'wkhtmltoimage -f png --width 0 describe_lung.html describe_lung.png', shell=True)
+
+    print("Correlations\n")
+    correlation = cancer_data.corr()
+    print(correlation)
+
+    correlation.to_html('correlation_lung.html')
+    subprocess.call(
+        'wkhtmltoimage -f png --width 0 correlation_lung.html correlation_lung.png', shell=True)
+
+    print("Overall\n")
 
     # Decision Tree
     # accuracies = []
@@ -80,12 +82,9 @@ def main():
     #
     # print("done", "\n", max(accuracies), "\n\n")
 
-    # accuracy, _, _ = run_supervised_algo_single(cancer_data, [1],
-    #                                             DecisionTreeClassifier(criterion='entropy', min_samples_split=3,
-    #                                                                    min_samples_leaf=1, max_depth=5))
-
-    # import ipdb; ipdb.set_trace()
-
+    accuracy, _, _ = run_supervised_algo_single(cancer_data, [1],
+                                                DecisionTreeClassifier(criterion='entropy', min_samples_split=3,
+                                                                       min_samples_leaf=1, max_depth=5))
 
     # Adaboost
     # accuracies = []
@@ -98,15 +97,12 @@ def main():
     #
     # print("done", "\n", max(accuracies), "\n\n")
 
-    # run_supervised_algo_single(cancer_data, [1],
-    #                            AdaBoostClassifier(
-    #                                base_estimator=DecisionTreeClassifier(criterion='entropy', min_samples_split=3,
-    #                                                                      min_samples_leaf=1,
-    #                                                                      max_depth=10), n_estimators=500,
-    #                                learning_rate=0.34, random_state=1))
-    #
-    # import ipdb;
-    # ipdb.set_trace()
+    run_supervised_algo_single(cancer_data, [1],
+                               AdaBoostClassifier(
+                                   base_estimator=DecisionTreeClassifier(criterion='entropy', min_samples_split=3,
+                                                                         min_samples_leaf=1,
+                                                                         max_depth=10), n_estimators=500,
+                                   learning_rate=0.34, random_state=1))
 
     # SVM
     # accuracies = []
@@ -117,13 +113,8 @@ def main():
     #
     # print("done", "\n", max(accuracies), "\n\n")
 
-    # run_supervised_algo_single(cancer_data, [1],
-    #                            SVC(random_state=1))
-    #
-    # import ipdb; ipdb.set_trace()
-
-    # run_supervised_algo_single(cancer_data, [1],
-    #                            SVC())
+    run_supervised_algo_single(cancer_data, [1],
+                               SVC(random_state=1))
 
     # KNN
     # accuracies = []
@@ -134,10 +125,8 @@ def main():
     #
     # print("done", "\n", max(accuracies), "\n\n")
 
-    accuracy, _, _ = run_supervised_algo_single(cancer_data, [1],
-                                                KNeighborsClassifier(n_neighbors=1))
-
-    import ipdb; ipdb.set_trace()
+    run_supervised_algo_single(cancer_data, [1],
+                               KNeighborsClassifier(n_neighbors=1))
 
     # run_supervised_algo_single(cancer_data, [1], KNeighborsClassifier(n_neighbors=6))
 
@@ -166,25 +155,7 @@ def main():
     # accuracy, depth = max(accuracies_layers, key=itemgetter(0))
     # print("Neural Net\n", accuracy, " Num Hidden Nodes: ", depth, "\n\n")
 
-    # run_supervised_algo_single(cancer_data, 1, MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=13))
-
-    # import ipdb; ipdb.set_trace()
-
-    # print("Feature Selection\n")
-    #
-    # for algo in algos:
-    #     print(algo, "\n\n")
-    #     run_supervised_algo_multi(math_data, 'G3', algo)
-    #     print("\n\n")
-
-    # call supervised learning algos here
-    # run_supervised_algo_multi(math_data, 'G3', LinearRegression())
-    # run_supervised_algo_multi(math_data, 'G3', DecisionTreeClassifier(), as_int=True)
-    # run_supervised_algo_multi(math_data, 'G3', RandomForestClassifier(n_estimators=10), as_int=True)
-    # run_supervised_algo_multi(math_data, 'G3', AdaBoostClassifier(), as_int=True)
-    # run_supervised_algo_multi(math_data, 'G3', GradientBoostingClassifier(), as_int=True)
-    # accuracy = run_supervised_algo_single(math_data, 'G3', MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 63), random_state=1))
-    # print(accuracy)
+    run_supervised_algo_single(cancer_data, 1, MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=13))
 
 
 if __name__ == "__main__":
