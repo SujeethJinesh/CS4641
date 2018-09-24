@@ -20,7 +20,6 @@ def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
 
     X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,
                                                                         test_size=0.2)  # produces good shuffled train and test sets
-
     if as_int:
         X_train = X_train.astype('int')
         X_test = X_test.astype('int')
@@ -31,22 +30,22 @@ def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
 
     # import ipdb; ipdb.set_trace()
 
-    # if type(classifier) == DecisionTreeClassifier:
-    #     tree.export_graphviz(classifier)
-    #     subprocess.call('dot -Tpng tree.dot -o tree.png', shell=True)
-    #     plot_learning_curve(classifier, "Lung Cancer Decision Tree Learning Curve", X, y)
-    #
-    #     y_pred = classifier.predict(X_test)
-    #     cm = confusion_matrix(y_test, y_pred)
-    #     plot_confusion_matrix(cm, ["Benign", "Malignant"], title="Lung Cancer Decision Tree Confusion Matrix")
-    #     # import ipdb; ipdb.set_trace()
-    #
+    if type(classifier) == DecisionTreeClassifier:
+        tree.export_graphviz(classifier)
+        subprocess.call('dot -Tpng tree.dot -o tree.png', shell=True)
+        plot_learning_curve(classifier, "Lung Cancer Decision Tree Learning Curve", X, y)
+
+        y_pred = classifier.predict(X_test)
+        cm = confusion_matrix(y_test, y_pred)
+        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer Decision Tree Confusion Matrix")
+        # import ipdb; ipdb.set_trace()
+
     # if type(classifier) == MLPClassifier:
     #     plot_learning_curve(classifier, "Lung Cancer Neural Net Learning Curve", X, y)
     #
     #     y_pred = classifier.predict(X_test)
     #     cm = confusion_matrix(y_test, y_pred)
-    #     plot_confusion_matrix(cm, ["Benign", "Malignant"], title="Lung Cancer Neural Net Confusion Matrix")
+    #     plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer Neural Net Confusion Matrix")
     #     import ipdb; ipdb.set_trace()
     #
     # if type(classifier) == AdaBoostClassifier:
@@ -54,7 +53,7 @@ def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
     #
     #     y_pred = classifier.predict(X_test)
     #     cm = confusion_matrix(y_test, y_pred)
-    #     plot_confusion_matrix(cm, ["Benign", "Malignant"], title="Lung Cancer AdaBoost Confusion Matrix")
+    #     plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer AdaBoost Confusion Matrix")
     #     import ipdb; ipdb.set_trace()
     #
     # if type(classifier) == SVC:
@@ -62,7 +61,7 @@ def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
     #
     #     y_pred = classifier.predict(X_test)
     #     cm = confusion_matrix(y_test.astype(float), y_pred)
-    #     plot_confusion_matrix(cm, ["Benign", "Malignant"], title="Lung Cancer SVM Confusion Matrix")
+    #     plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer SVM Confusion Matrix")
     #     import ipdb; ipdb.set_trace()
     #
     # if type(classifier) == KNeighborsClassifier:
@@ -70,7 +69,7 @@ def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
     #
     #     y_pred = classifier.predict(X_test)
     #     cm = confusion_matrix(y_test.astype(float), y_pred)
-    #     plot_confusion_matrix(cm, ["Benign", "Malignant"], title="Lung Cancer KNN Confusion Matrix")
+    #     plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer KNN Confusion Matrix")
     #     import ipdb; ipdb.set_trace()
 
     confidence = classifier.score(X_test, y_test)  # (test)
