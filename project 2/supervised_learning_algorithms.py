@@ -12,7 +12,7 @@ from sklearn.neural_network import MLPClassifier
 import subprocess
 
 
-def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
+def run_supervised_algo_single(data, label_cols, classifier, as_int=False, optimizer=None):
     X = np.array(data.drop(label_cols, 1))  # X is all of our features
     X = preprocessing.scale(X.astype(float)).astype(float)  # scale our features
 
@@ -26,44 +26,48 @@ def run_supervised_algo_single(data, label_cols, classifier, as_int=False):
         y_train = y_train.astype('int')
         y_test = y_test.astype('int')
 
-    classifier.fit(X_train, y_train)  # does the prediction (training)
+    if optimizer:
+        optimizer.fit(X_train, y_train)
+    else:
+        classifier.fit(X_train, y_train)  # does the prediction (training)
 
     # import ipdb; ipdb.set_trace()
 
     if type(classifier) == DecisionTreeClassifier:
         tree.export_graphviz(classifier)
         subprocess.call('dot -Tpng tree.dot -o tree.png', shell=True)
-        plot_learning_curve(classifier, "Lung Cancer Decision Tree Learning Curve", X, y)
+        plot_learning_curve(classifier, "Breast Cancer Decision Tree Learning Curve", X, y)
 
         y_pred = classifier.predict(X_test)
         cm = confusion_matrix(y_test, y_pred)
-        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer Decision Tree Confusion Matrix")
+        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Breast Cancer Decision Tree Confusion Matrix")
 
     if type(classifier) == MLPClassifier:
-        plot_learning_curve(classifier, "Lung Cancer Neural Net Learning Curve", X, y)
+        if not optimizer:
+            plot_learning_curve(classifier, "Breast Cancer Neural Net Learning Curve", X, y)
 
-        y_pred = classifier.predict(X_test)
-        cm = confusion_matrix(y_test, y_pred)
-        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer Neural Net Confusion Matrix")
+            y_pred = classifier.predict(X_test)
+            cm = confusion_matrix(y_test, y_pred)
+            plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Breast Cancer Neural Net Confusion Matrix")
 
     if type(classifier) == AdaBoostClassifier:
-        plot_learning_curve(classifier, "Lung Cancer AdaBoost Learning Curve", X, y)
+        plot_learning_curve(classifier, "Breast Cancer AdaBoost Learning Curve", X, y)
 
         y_pred = classifier.predict(X_test)
         cm = confusion_matrix(y_test, y_pred)
-        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer AdaBoost Confusion Matrix")
+        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Breast Cancer AdaBoost Confusion Matrix")
 
     if type(classifier) == SVC:
         y_pred = classifier.predict(X_test)
         cm = confusion_matrix(y_test.astype(float), y_pred)
-        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer SVM Confusion Matrix")
+        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Breast Cancer SVM Confusion Matrix")
 
     if type(classifier) == KNeighborsClassifier:
-        plot_learning_curve(classifier, "Lung Cancer KNN Learning Curve", X, y)
+        plot_learning_curve(classifier, "Breast Cancer KNN Learning Curve", X, y)
 
         y_pred = classifier.predict(X_test)
         cm = confusion_matrix(y_test.astype(float), y_pred)
-        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Lung Cancer KNN Confusion Matrix")
+        plot_confusion_matrix(cm, ["Class 1", "Class 2", "Class 3"], title="Breast Cancer KNN Confusion Matrix")
 
     confidence = classifier.score(X_test, y_test)  # (test)
 

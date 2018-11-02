@@ -53,7 +53,6 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
     n_jobs : integer, optional
         Number of jobs to run in parallel (default 1).
     """
-    # import ipdb; ipdb.set_trace()
     plt.close()
     plt.figure()
     plt.title(title)
@@ -80,7 +79,7 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
              label="Cross-validation score")
 
     plt.legend(loc="best")
-    plt.savefig(title + ".png")
+    plt.savefig("images/" + title + ".png")
     return plt
 
 
@@ -118,7 +117,7 @@ def plot_confusion_matrix(cm, classes,
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
-    plt.savefig(title + ".png")
+    plt.savefig("images/" + title + ".png")
     return plt
 
 
