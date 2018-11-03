@@ -10,6 +10,7 @@ import shared.Instance;
 import shared.SumOfSquaresError;
 import func.nn.backprop.BackPropagationNetwork;
 import func.nn.backprop.BackPropagationNetworkFactory;
+import shared.tester.*;
 
 /**
  * Test optimization for neural networks
@@ -31,6 +32,7 @@ public class XORTest {
                { { 0, 1, 0, 1 }, { 1 } },
                { { 0, 0, 0, 0 }, { 0 } }
         };
+        double[] labels = { 0, 1 };
         Instance[] patterns = new Instance[data.length];
         for (int i = 0; i < patterns.length; i++) {
             patterns[i] = new Instance(data[i][0]);
@@ -47,13 +49,21 @@ public class XORTest {
         fit.train();
         Instance opt = o.getOptimal();
         network.setWeights(opt.getData());
-        for (int i = 0; i < patterns.length; i++) {
-            network.setInputValues(patterns[i].getData());
+
+        TestMetric acc = new AccuracyTestMetric();
+        TestMetric cm  = new ConfusionMatrixTestMetric(labels);
+        Tester t = new NeuralNetworkTester(network, acc, cm);
+        t.test(patterns);
+
+        for (Instance pattern : patterns) {
+            network.setInputValues(pattern.getData());
             network.run();
             System.out.println("~~");
-            System.out.println(patterns[i].getLabel());
+            System.out.println(pattern.getLabel());
             System.out.println(network.getOutputValues());
         }
+        acc.printResults();
+        cm.printResults();
     } 
 
 }

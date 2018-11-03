@@ -2,10 +2,7 @@ package opt.example;
 
 import dist.Distribution;
 
-import opt.ContinuousAddOneNeighbor;
-import opt.EvaluationFunction;
-import opt.HillClimbingProblem;
-import opt.NeighborFunction;
+import opt.*;
 import opt.ga.ContinuousAddOneMutation;
 import opt.ga.UniformCrossOver;
 import opt.ga.CrossoverFunction;

@@ -22,7 +22,7 @@ import java.text.*;
 public class AbaloneTest {
     private static Instance[] instances = initializeInstances();
 
-    private static int inputLayer = 7, hiddenLayer = 5, outputLayer = 1, trainingIterations = 1000;
+    private static int inputLayer = 7, hiddenLayer = 5, outputLayer = 1, trainingIterations = 1000, numInstances=4177;
     private static BackPropagationNetworkFactory factory = new BackPropagationNetworkFactory();
     
     private static ErrorMeasure measure = new SumOfSquaresError();
@@ -106,7 +106,7 @@ public class AbaloneTest {
 
     private static Instance[] initializeInstances() {
 
-        double[][][] attributes = new double[4177][][];
+        double[][][] attributes = new double[numInstances][][];
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(new File("src/opt/test/abalone.txt")));
@@ -116,10 +116,10 @@ public class AbaloneTest {
                 scan.useDelimiter(",");
 
                 attributes[i] = new double[2][];
-                attributes[i][0] = new double[7]; // 7 attributes
+                attributes[i][0] = new double[inputLayer]; // num attributes
                 attributes[i][1] = new double[1];
 
-                for(int j = 0; j < 7; j++)
+                for(int j = 0; j < inputLayer; j++)
                     attributes[i][0][j] = Double.parseDouble(scan.next());
 
                 attributes[i][1][0] = Double.parseDouble(scan.next());

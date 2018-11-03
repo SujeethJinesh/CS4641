@@ -11,7 +11,7 @@ import java.util.Random;
 public class ABAGAILArrays {
     /** Random number generator */
     public static final Random random = new Random();
-    
+
     /**
      * Print out an array
      * @param array the array to print
@@ -32,7 +32,7 @@ public class ABAGAILArrays {
         result += df.format(array[array.length - 1]) + "}";
         return result;
     }
-    
+
     /**
      * Print out an array
      * @param array the array to print
@@ -50,7 +50,7 @@ public class ABAGAILArrays {
         for (int i = 0; i < array.length; i++) {
             if (i != 0) {
                 result += "\n ";
-            } 
+            }
             result += " { ";
             for (int j = 0; j < array[i].length - 1; j++) {
                 result += df.format(array[i][j]) + ", ";
@@ -60,7 +60,7 @@ public class ABAGAILArrays {
         result += " }";
         return result;
     }
-    
+
     /**
      * Print out an array
      * @param array the array to print
@@ -70,7 +70,7 @@ public class ABAGAILArrays {
     public static String toString(double[] array) {
         return toString(array, 7);
     }
-    
+
     /**
      * Print out an array
      * @param array the array to print
@@ -80,8 +80,8 @@ public class ABAGAILArrays {
     public static String toString(double[][] array) {
         return toString(array, 7);
     }
-    
-    
+
+
     /**
      * Print out an array
      * @param array the array to print
@@ -91,7 +91,7 @@ public class ABAGAILArrays {
         for (int i = 0; i < array.length; i++) {
             if (i != 0) {
                 result += "\n ";
-            } 
+            }
             result += " { ";
             for (int j = 0; j < array[i].length - 1; j++) {
                 result += array[i][j] + ", ";
@@ -128,9 +128,9 @@ public class ABAGAILArrays {
         }
         result += objects[objects.length - 1] + "}";
         return result;
-    }   
+    }
 
-    
+
     /**
      * Parition an array in place according to the
      * last element in the array
@@ -151,7 +151,7 @@ public class ABAGAILArrays {
         swap(a, i+1, e-1);
         return i + 1;
     }
-    
+
     /**
      * Parition an array in place according to the
      * last element in the array
@@ -175,7 +175,7 @@ public class ABAGAILArrays {
         swap(indices, i+1, e-1);
         return i + 1;
     }
-    
+
     /**
      * Perform a random partition
      * @param a the array
@@ -188,8 +188,8 @@ public class ABAGAILArrays {
         swap(a, i, e-1);
         return partition(a, s, e);
     }
-    
-    
+
+
     /**
      * Perform a random partition
      * @param a the array
@@ -203,7 +203,7 @@ public class ABAGAILArrays {
         swap(indices, i, e-1);
         return partition(a, indices, s, e);
     }
-    
+
     /**
      * Select the ith smallest number in an array
      * @param a the array to select out of
@@ -213,30 +213,31 @@ public class ABAGAILArrays {
      * @return the ith smallest number
      */
     public static double randomizedSelect(double[] a, int s, int e, int i) {
-        if (s == e - 1) {
-            return a[s];
+        while (s < e - 1) {
+            int splitI = randomPartition(a, s, e);
+            int orderOfSplit = splitI - s + 1;
+            if (orderOfSplit == i) {
+                return a[splitI];
+            } else if (i < orderOfSplit) {
+                e = splitI;
+                continue;
+            }
+            s = splitI + 1;
+            i -= orderOfSplit;
         }
-        int splitI = randomPartition(a, s, e);
-        int orderOfSplit = splitI - s + 1;
-        if (orderOfSplit == i) {
-           return a[splitI]; 
-        } else if (i < orderOfSplit) {
-            return randomizedSelect(a, s, splitI, i);
-        } else {
-            return randomizedSelect(a, splitI + 1, e, i - orderOfSplit);
-        }
+        return a[s];
     }
-    
+
     /**
      * Get the ith smallest number in an array
      * @param a the array
-     * @param i the number to select 
+     * @param i the number to select
      * @return the ith smallest number
      */
     public static double randomizedSelect(double[] a, int i) {
         return randomizedSelect(a, 0, a.length, i);
     }
-    
+
     /**
      * Swap two values in an array
      * @param a the array
@@ -248,7 +249,7 @@ public class ABAGAILArrays {
         a[i] = a[j];
         a[j] = temp;
     }
-    
+
     /**
      * Search an array for a value
      * @param a the array
@@ -270,7 +271,7 @@ public class ABAGAILArrays {
         }
         return high;
     }
-    
+
     /**
      * Swap two values in an array
      * @param a the array
@@ -282,7 +283,7 @@ public class ABAGAILArrays {
         a[i] = a[j];
         a[j] = temp;
     }
-    
+
     /**
      * Perform quicksort on the given array
      * @param a the array to quicksort
@@ -296,7 +297,7 @@ public class ABAGAILArrays {
             quicksort(a, splitI + 1, j);
         }
     }
-    
+
     /**
      * Sort an array
      * @param a the array to sort
@@ -304,7 +305,7 @@ public class ABAGAILArrays {
     public static void quicksort(double[] a) {
         quicksort(a, 0, a.length);
     }
-    
+
     /**
      * Perform quicksort on the given array
      * @param a the array to quicksort
@@ -319,7 +320,7 @@ public class ABAGAILArrays {
             quicksort(a, indices, splitI + 1, j);
         }
     }
-    
+
     /**
      * Sort an array
      * @param a the array to sort
@@ -328,7 +329,7 @@ public class ABAGAILArrays {
     public static void quicksort(double[] a, int[] indices) {
         quicksort(a, indices, 0, a.length);
     }
-    
+
     /**
      * Permute the given array
      * @param a the array to permute
@@ -350,7 +351,7 @@ public class ABAGAILArrays {
             swap(a, i, j);
         }
     }
-    
+
     /**
      * Get indices of a size
      * @param size the size of the indices to return
@@ -363,7 +364,7 @@ public class ABAGAILArrays {
         }
         return indices;
     }
-    
+
     /**
      * Get double indices of a size
      * @param size the size of the indices to return

@@ -48,9 +48,17 @@ def main():
 
     cancer_path = 'data/breast_cancer/breast_cancer_wisconsin.data.txt'
 
-    cancer_data = getCleanData(cancer_path, attrs, binary_one_hot_map=binary_one_hot_map, normalize_list=normalize_list,
+    # cancer_data = getCleanData(cancer_path, attrs, binary_one_hot_map=binary_one_hot_map, normalize_list=normalize_list,
+    #                            multi_one_hot_list=multi_one_hot_list, missing_data_marker='?', to_impute=False,
+    #                            cols_to_drop=['Sample code number'], normalizer_type='min_max')
+
+    cancer_data = getCleanData(cancer_path, attrs, binary_one_hot_map=binary_one_hot_map,
                                multi_one_hot_list=multi_one_hot_list, missing_data_marker='?', to_impute=False,
                                cols_to_drop=['Sample code number'], normalizer_type='min_max')
+
+    cancer_data.to_csv("breast_cancer_wisconsin.data", index=False)
+
+    import ipdb; ipdb.set_trace()
 
     # CheckList
     # 1. Neural Network (plain)

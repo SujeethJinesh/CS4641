@@ -1,5 +1,6 @@
 package shared.tester;
 
+import func.nn.backprop.BackPropagationNetwork;
 import shared.Instance;
 import shared.reader.DataSetLabelBinarySeperator;
 import func.nn.NeuralNetwork;
@@ -16,10 +17,18 @@ public class NeuralNetworkTester implements Tester {
 
     private NeuralNetwork network;
     private TestMetric[] metrics;
+    private Boolean rounded;
 
-    public NeuralNetworkTester(NeuralNetwork network, TestMetric ... metrics) {
+    public NeuralNetworkTester(NeuralNetwork network, TestMetric... metrics) {
         this.network = network;
         this.metrics = metrics;
+        this.rounded = false;
+    }
+
+    public NeuralNetworkTester(NeuralNetwork network, Boolean rounded, TestMetric... metrics) {
+        this.network = network;
+        this.metrics = metrics;
+        this.rounded = rounded;
     }
 
     @Override
@@ -30,7 +39,7 @@ public class NeuralNetworkTester implements Tester {
             network.run();
 
             Instance expected = instances[i].getLabel();
-            Instance actual   = new Instance(network.getOutputValues());
+            Instance actual = new Instance(network.getOutputValues());
 
             //collapse the values, for statistics reporting
             //NOTE: assumes discrete labels, with n output nodes for n

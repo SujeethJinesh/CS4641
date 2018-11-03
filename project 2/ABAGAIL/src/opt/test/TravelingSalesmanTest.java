@@ -1,30 +1,15 @@
 package opt.test;
 
-import java.util.Arrays;
-import java.util.Random;
-
-import dist.DiscreteDependencyTree;
 import dist.DiscretePermutationDistribution;
-import dist.DiscreteUniformDistribution;
 import dist.Distribution;
-
-import opt.SwapNeighbor;
-import opt.GenericHillClimbingProblem;
-import opt.HillClimbingProblem;
-import opt.NeighborFunction;
-import opt.RandomizedHillClimbing;
-import opt.SimulatedAnnealing;
-import opt.example.*;
-import opt.ga.CrossoverFunction;
-import opt.ga.SwapMutation;
-import opt.ga.GenericGeneticAlgorithmProblem;
-import opt.ga.GeneticAlgorithmProblem;
-import opt.ga.MutationFunction;
-import opt.ga.StandardGeneticAlgorithm;
-import opt.prob.GenericProbabilisticOptimizationProblem;
-import opt.prob.MIMIC;
-import opt.prob.ProbabilisticOptimizationProblem;
+import opt.*;
+import opt.example.TravelingSalesmanCrossOver;
+import opt.example.TravelingSalesmanEvaluationFunction;
+import opt.example.TravelingSalesmanRouteEvaluationFunction;
+import opt.ga.*;
 import shared.FixedIterationTrainer;
+
+import java.util.Random;
 
 /**
  * 
@@ -69,19 +54,5 @@ public class TravelingSalesmanTest {
         fit = new FixedIterationTrainer(ga, 1000);
         fit.train();
         System.out.println(ef.value(ga.getOptimal()));
-        
-        // for mimic we use a sort encoding
-        ef = new TravelingSalesmanSortEvaluationFunction(points);
-        int[] ranges = new int[N];
-        Arrays.fill(ranges, N);
-        odd = new  DiscreteUniformDistribution(ranges);
-        Distribution df = new DiscreteDependencyTree(.1, ranges); 
-        ProbabilisticOptimizationProblem pop = new GenericProbabilisticOptimizationProblem(ef, odd, df);
-        
-        MIMIC mimic = new MIMIC(200, 100, pop);
-        fit = new FixedIterationTrainer(mimic, 1000);
-        fit.train();
-        System.out.println(ef.value(mimic.getOptimal()));
-        
     }
 }
