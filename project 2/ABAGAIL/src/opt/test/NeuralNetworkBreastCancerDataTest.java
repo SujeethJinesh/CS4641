@@ -129,7 +129,7 @@ public class NeuralNetworkBreastCancerDataTest {
         oa[2] = new StandardGeneticAlgorithm(200, 100, 10, nnop[2]);
 
         for(int i = 0; i < oa.length; i++) {
-            double start = System.nanoTime(), end, trainingTime, testingTime, correct = 0, incorrect = 0;
+            double start = System.nanoTime(), end, trainingTime, testingTime, correctBenign = 0, incorrectBenign = 0, correctMalignant = 0, incorrectMalignant = 0;
             train(oa[i], networks[i], oaNames[i]); //trainer.train();
             end = System.nanoTime();
             trainingTime = end - start;
@@ -144,19 +144,37 @@ public class NeuralNetworkBreastCancerDataTest {
                 networks[i].setInputValues(instance.getData());
                 networks[i].run();
 
-                predicted = Double.parseDouble(instance.getLabel().toString());
-                actual = Double.parseDouble(networks[i].getOutputValues().toString());
+                actual = Double.parseDouble(instance.getLabel().toString());
+                predicted = Double.parseDouble(networks[i].getOutputValues().toString());
 
-                double trash = Math.abs(predicted - actual) < 0.5 ? correct++ : incorrect++;
+                if (actual == 0) {
+                    if (Math.round(predicted) == 0) {
+                        correctBenign++;
+                    } else {
+                        incorrectBenign++;
+                    }
+                } else {
+                    if (Math.round(predicted) == 1) {
+                        correctMalignant++;
+                    } else {
+                        incorrectMalignant++;
+                    }
+                }
             }
             end = System.nanoTime();
             testingTime = end - start;
             testingTime /= Math.pow(10,9);
+            double totalCorrect = (correctBenign + correctMalignant);
+            double totalIncorrect =  (incorrectBenign + incorrectMalignant);
 
-            results +=  "\nResults for " + oaNames[i] + ": \nCorrectly classified " + correct + " instances." +
-                    "\nIncorrectly classified " + incorrect + " instances.\nPercent correctly classified: "
-                    + df.format(correct/(correct+incorrect)*100) + "%\nTraining time: " + df.format(trainingTime)
+            results +=  "\nResults for " + oaNames[i] + ": \nCorrectly classified " + totalCorrect + " instances." +
+                    "\nIncorrectly classified " + totalIncorrect + " instances.\nPercent correctly classified: "
+                    + df.format(totalCorrect/(totalCorrect+totalIncorrect)*100) + "%\nTraining time: " + df.format(trainingTime)
                     + " seconds\nTesting time: " + df.format(testingTime) + " seconds\n";
+
+            results += "\t\t\tPred. Benign\tPred. Malignant\n";
+            results += "Act. Benign\t\t" + correctBenign + "\t\t" + incorrectBenign + "\n";
+            results += "Act. Malignant\t\t" + incorrectMalignant + "\t\t" + correctMalignant + "\n";
         }
 
         System.out.println(results);
