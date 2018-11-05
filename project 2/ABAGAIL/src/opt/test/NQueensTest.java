@@ -85,16 +85,5 @@ public class NQueensTest {
         System.out.println("GA: Board Position: ");
         //System.out.println(ef.boardPositions());
         System.out.println("Time : "+ (System.currentTimeMillis() - starttime));
-        
-        System.out.println("============================");
-        
-        starttime = System.currentTimeMillis();
-        MIMIC mimic = new MIMIC(200, 10, pop);
-        fit = new FixedIterationTrainer(mimic, 5);
-        fit.train();
-        System.out.println("MIMIC: " + ef.value(mimic.getOptimal()));
-        System.out.println("MIMIC: Board Position: ");
-        //System.out.println(ef.boardPositions());
-        System.out.println("Time : "+ (System.currentTimeMillis() - starttime));
     }
 }

@@ -63,10 +63,5 @@ public class FourPeaksTest {
         fit = new FixedIterationTrainer(ga, 1000);
         fit.train();
         System.out.println("GA: " + ef.value(ga.getOptimal()));
-        
-        MIMIC mimic = new MIMIC(200, 20, pop);
-        fit = new FixedIterationTrainer(mimic, 1000);
-        fit.train();
-        System.out.println("MIMIC: " + ef.value(mimic.getOptimal()));
     }
 }

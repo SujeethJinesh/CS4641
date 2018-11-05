@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import learning_curve
 import itertools
+from sklearn.metrics import confusion_matrix
+import csv
 
 
 def plot(x_axis, y_axis, title=None):
@@ -53,6 +55,7 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
     n_jobs : integer, optional
         Number of jobs to run in parallel (default 1).
     """
+    # import ipdb; ipdb.set_trace()
     plt.close()
     plt.figure()
     plt.title(title)
@@ -79,7 +82,7 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
              label="Cross-validation score")
 
     plt.legend(loc="best")
-    plt.savefig("images/" + title + ".png")
+    plt.savefig(title + ".png")
     return plt
 
 
@@ -117,7 +120,7 @@ def plot_confusion_matrix(cm, classes,
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
-    plt.savefig("images/" + title + ".png")
+    plt.savefig(title + ".png")
     return plt
 
 
@@ -156,3 +159,40 @@ def plot_contours(ax, clf, xx, yy, **params):
     Z = Z.reshape(xx.shape)
     out = ax.contourf(xx, yy, Z, **params)
     return out
+
+
+def plot_confusion_matrices(labels):
+    for label in labels:
+        with open("ABAGAIL/" + label + "_actuals.csv", 'r') as my_file:
+            reader = csv.reader(my_file, delimiter=',')
+            actuals = list(reader)[0][:-1]
+        with open("ABAGAIL/" + label + "_predicteds.csv", 'r') as my_file:
+            reader = csv.reader(my_file, delimiter=',')
+            predicteds = list(reader)[0][:-1]
+
+        cm = confusion_matrix(actuals, predicteds)
+        plt = plot_confusion_matrix(cm, ["Benign", "Malignant"], title=label + " Neural Net Confusion Matrix")
+        plt.savefig(label + " Neural Net Confusion Matrix.png")
+
+
+def plot_learning_curves(labels):
+    for label in labels:
+        with open("ABAGAIL/" + label + "_errors.csv", 'r') as my_file:
+            reader = csv.reader(my_file, delimiter=',')
+            errors = list(reader)[0][:-1]
+            errors = [float(i) for i in errors]
+        plt.close()
+        # import ipdb; ipdb.set_trace()
+        plt.title(label + " Neural Net Learning Curve")
+        plt.xlabel("Iterations")
+        plt.ylabel("Error")
+        plt.plot(range(len(errors)), errors)
+        plt.yticks(np.arange(0, float(sorted(errors)[-1]), step=5))
+        plt.savefig(label + " Neural Net Learning Curve.png")
+        print(sorted(errors)[0], sorted(errors)[-1])
+
+
+if __name__ == '__main__':
+    labels = ["GA", "SA", "RHC"]
+    plot_confusion_matrices(labels)
+    plot_learning_curves(labels)

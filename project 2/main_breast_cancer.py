@@ -114,19 +114,7 @@ def main():
     #                                           tournament_size=3,
     #                                           generations_number=5,
     #                                           n_jobs=4)
-    optimizer = GeneticSelectionCV(clf,
-                                   cv=5,
-                                   verbose=1,
-                                   scoring="accuracy",
-                                   n_population=50,
-                                   crossover_proba=0.5,
-                                   mutation_proba=0.2,
-                                   n_generations=40,
-                                   crossover_independent_proba=0.5,
-                                   mutation_independent_proba=0.05,
-                                   tournament_size=3,
-                                   caching=True,
-                                   n_jobs=-1)
+
     print(run_supervised_algo_single(cancer_data, 'Class', clf,
                                      optimizer=optimizer)[0])
 

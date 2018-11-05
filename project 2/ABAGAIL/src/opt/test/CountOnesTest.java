@@ -62,10 +62,5 @@ public class CountOnesTest {
         fit = new FixedIterationTrainer(ga, 300);
         fit.train();
         System.out.println(ef.value(ga.getOptimal()));
-        
-        MIMIC mimic = new MIMIC(50, 10, pop);
-        fit = new FixedIterationTrainer(mimic, 100);
-        fit.train();
-        System.out.println(ef.value(mimic.getOptimal()));
     }
 }
