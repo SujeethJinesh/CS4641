@@ -80,21 +80,77 @@ public class KnapsackTest {
         HillClimbingProblem hcp = new GenericHillClimbingProblem(ef, odd, nf);
         GeneticAlgorithmProblem gap = new GenericGeneticAlgorithmProblem(ef, odd, mf, cf);
         ProbabilisticOptimizationProblem pop = new GenericProbabilisticOptimizationProblem(ef, odd, df);
-        
-        RandomizedHillClimbing rhc = new RandomizedHillClimbing(hcp);      
+
+        RandomizedHillClimbing rhc = new RandomizedHillClimbing(hcp);
         FixedIterationTrainer fit = new FixedIterationTrainer(rhc, 200000);
         fit.train();
         System.out.println(ef.value(rhc.getOptimal()));
-        
-        SimulatedAnnealing sa = new SimulatedAnnealing(100, .95, hcp);
+
+
+
+
+        SimulatedAnnealing sa = new SimulatedAnnealing(1E12, .95, hcp);
         fit = new FixedIterationTrainer(sa, 200000);
         fit.train();
         System.out.println(ef.value(sa.getOptimal()));
-        
-        StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 150, 25, gap);
+
+        SimulatedAnnealing sa_10 = new SimulatedAnnealing(1E10, .95, hcp);
+        fit = new FixedIterationTrainer(sa_10, 200000);
+        fit.train();
+        System.out.println(ef.value(sa_10.getOptimal()));
+
+        SimulatedAnnealing sa_14 = new SimulatedAnnealing(1E14, .95, hcp);
+        fit = new FixedIterationTrainer(sa_14, 200000);
+        fit.train();
+        System.out.println(ef.value(sa_14.getOptimal()));
+
+        SimulatedAnnealing sa90 = new SimulatedAnnealing(1E12, .90, hcp);
+        fit = new FixedIterationTrainer(sa90, 200000);
+        fit.train();
+        System.out.println(ef.value(sa90.getOptimal()));
+
+        SimulatedAnnealing sa99 = new SimulatedAnnealing(1E12, .99, hcp);
+        fit = new FixedIterationTrainer(sa99, 200000);
+        fit.train();
+        System.out.println(ef.value(sa99.getOptimal()));
+
+
+
+
+        StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 150, 20, gap);
         fit = new FixedIterationTrainer(ga, 1000);
         fit.train();
         System.out.println(ef.value(ga.getOptimal()));
+
+        StandardGeneticAlgorithm ga_100_pop = new StandardGeneticAlgorithm(150, 150, 20, gap);
+        fit = new FixedIterationTrainer(ga_100_pop, 1000);
+        fit.train();
+        System.out.println(ef.value(ga_100_pop.getOptimal()));
+
+        StandardGeneticAlgorithm ga_300_pop = new StandardGeneticAlgorithm(300, 150, 20, gap);
+        fit = new FixedIterationTrainer(ga_300_pop, 1000);
+        fit.train();
+        System.out.println(ef.value(ga_300_pop.getOptimal()));
+
+        StandardGeneticAlgorithm ga_100_mate = new StandardGeneticAlgorithm(200, 100, 20, gap);
+        fit = new FixedIterationTrainer(ga_100_mate, 1000);
+        fit.train();
+        System.out.println(ef.value(ga_100_mate.getOptimal()));
+
+        StandardGeneticAlgorithm ga_200_mate = new StandardGeneticAlgorithm(200, 200, 20, gap);
+        fit = new FixedIterationTrainer(ga_200_mate, 1000);
+        fit.train();
+        System.out.println(ef.value(ga_200_mate.getOptimal()));
+
+        StandardGeneticAlgorithm ga_50_mutate = new StandardGeneticAlgorithm(200, 150, 50, gap);
+        fit = new FixedIterationTrainer(ga_50_mutate, 1000);
+        fit.train();
+        System.out.println(ef.value(ga_50_mutate.getOptimal()));
+
+        StandardGeneticAlgorithm ga_0_mutate = new StandardGeneticAlgorithm(200, 150, 0, gap);
+        fit = new FixedIterationTrainer(ga_0_mutate, 1000);
+        fit.train();
+        System.out.println(ef.value(ga_0_mutate.getOptimal()));
     }
 
 }

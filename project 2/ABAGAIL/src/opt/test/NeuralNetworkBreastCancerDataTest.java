@@ -14,18 +14,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Based on the XORTest test class, this class uses a standard FeedForwardNetwork
- * and various optimization problems.
- *
- * See numbered explanations for what each piece of the method does to address
- * the neural network optimization problem.
- *
- * @author Jesse Rosalia <https://github.com/theJenix>
- * @date 2013-03-05
- */
 public class NeuralNetworkBreastCancerDataTest {
-    private static int inputLayer = 9, hiddenLayer = 4, outputLayer = 1, trainingIterations = 200, numTrainingInstances = 545, numTestingInstances = 138;
+    private static int inputLayer = 9, hiddenLayer = 4, outputLayer = 1, trainingIterations = 1000, numTrainingInstances = 545, numTestingInstances = 138;
     private static Instance[] trainingInstances;
     private static Instance[] testingInstances;
 
@@ -110,13 +100,13 @@ public class NeuralNetworkBreastCancerDataTest {
             results += "Act. Benign\t\t" + correctBenign + "\t\t" + incorrectBenign + "\n";
             results += "Act. Malignant\t\t" + incorrectMalignant + "\t\t" + correctMalignant + "\n";
 
-            FileWriter writer = new FileWriter(oaNames[i] + "_actuals.csv");
+            FileWriter writer = new FileWriter(oaNames[i] + "_actuals_" + trainingIterations + ".csv");
             for(double doub: actuals) {
                 writer.write(doub + ",");
             }
             writer.close();
 
-            writer = new FileWriter(oaNames[i] + "_predicteds.csv");
+            writer = new FileWriter(oaNames[i] + "_predicteds_" + trainingIterations + ".csv");
             for(double doub: predicteds) {
                 writer.write(doub + ",");
             }
@@ -145,7 +135,7 @@ public class NeuralNetworkBreastCancerDataTest {
             System.out.println(df.format(error));
         }
 
-        FileWriter writer = new FileWriter(oaName + "_errors.csv");
+        FileWriter writer = new FileWriter(oaName + "_errors_" + trainingIterations + ".csv");
         for(double doub: errors) {
             writer.write(doub + ",");
         }
