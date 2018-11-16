@@ -7,7 +7,6 @@ from sklearn.neural_network import MLPClassifier
 from clustering_algorithms import run_clustering_algo_single
 from data_processing import getCleanData
 
-import subprocess
 import numpy as np
 
 
@@ -43,37 +42,6 @@ def main():
     num_classes = len(X[0])
 
     y = np.array(cancer_data[label_cols])  # our y values
-
-    # print("Description\n")
-    # desc = cancer_data.describe()
-    # print(desc)
-    #
-    # desc.to_html('describe.html')
-    # subprocess.call(
-    #     'wkhtmltoimage -f png --width 0 describe.html describe.png', shell=True)
-    #
-    # print("Correlations\n")
-    # correlation = cancer_data.corr()
-    # print(correlation)
-    #
-    # correlation.to_html('correlation.html')
-    # subprocess.call(
-    #     'wkhtmltoimage -f png --width 0 correlation.html correlation.png', shell=True)
-    #
-    # print("Overall\n")
-
-    # Neural Net
-
-    # accuracies_layers = []
-    # accuracies = []
-    # for hidden_layers in range(1, 10):
-    #     accuracy, _, _ = run_supervised_algo_single(cancer_data, 'Class',
-    #                                                 MLPClassifier(solver='lbfgs', alpha=1e-5,
-    #                                                               hidden_layer_sizes=hidden_layers))
-    #     accuracies.append(accuracy)
-    #     accuracies_layers.append((accuracy, hidden_layers))
-
-    # run_supervised_algo_single(cancer_data, 'Class', MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=4))
 
     # CheckList
     # 1. K means
