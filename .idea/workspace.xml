@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73ae1839-e3c0-4d8a-a436-22e7fe938caf" name="Default" comment="">
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/project 2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/project 2/.idea/workspace.xml" />
-=======
       <change beforePath="" afterPath="$PROJECT_DIR$/project 2/data/breast_cancer/__init__.py" />
       <change beforePath="" afterPath="$PROJECT_DIR$/project 2/data/breast_cancer/breast-cancer-wisconsin.names.txt" />
       <change beforePath="" afterPath="$PROJECT_DIR$/project 2/data/breast_cancer/breast_cancer_wisconsin.data.txt" />
@@ -59,7 +56,6 @@
       <change beforePath="$PROJECT_DIR$/SupervisedLearning/supervised_learning_algorithms.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/SupervisedLearning/tree.dot" afterPath="" />
       <change beforePath="$PROJECT_DIR$/SupervisedLearning/tree.png" afterPath="" />
->>>>>>> 61e846f228830a2ed701c64b35334087ec7a7abf
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,11 +66,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-<<<<<<< HEAD
-      <file leaf-file-name="main_breast_cancer.py" pinned="false" current-in-tab="false">
-=======
       <file leaf-file-name="main_breast_cancer.py" pinned="false" current-in-tab="true">
->>>>>>> 61e846f228830a2ed701c64b35334087ec7a7abf
         <entry file="file://$PROJECT_DIR$/project 2/main_breast_cancer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -84,21 +76,6 @@
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="supervised_learning_algorithms.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project 2/supervised_learning_algorithms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-=======
->>>>>>> 61e846f228830a2ed701c64b35334087ec7a7abf
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -302,10 +279,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-=======
     <entry file="file://$PROJECT_DIR$/SupervisedLearning/data/heart_disease/processed.va.data" />
->>>>>>> 61e846f228830a2ed701c64b35334087ec7a7abf
     <entry file="file://$PROJECT_DIR$/SupervisedLearning/data/heart_disease/processed.all.data" />
     <entry file="file://$PROJECT_DIR$/SupervisedLearning/data/contraceptive/cmc.data" />
     <entry file="file://$PROJECT_DIR$/SupervisedLearning/data/contraceptive/cmc.names" />
@@ -391,19 +365,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/project 2/supervised_learning_algorithms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> 61e846f228830a2ed701c64b35334087ec7a7abf
   </component>
   <component name="masterDetails">
     <states>
