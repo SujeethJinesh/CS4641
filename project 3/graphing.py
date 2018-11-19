@@ -157,3 +157,16 @@ def plot_contours(ax, clf, xx, yy, **params):
     Z = Z.reshape(xx.shape)
     out = ax.contourf(xx, yy, Z, **params)
     return out
+
+
+def plot_cross_section(transformed_X, cross_section, file_loc, neighbors, experiment_number):
+    plt.close()
+    plt.figure()
+    title = file_loc + " (" + str(neighbors) + " neighbors) " + str(cross_section[0]) + " vs " + str(cross_section[1])
+    plt.title(title)
+    plt.grid()
+
+    x = transformed_X[:, cross_section[0]]
+    y = transformed_X[:, cross_section[1]]
+    plt.scatter(x, y)
+    plt.savefig("images/experiment_" + str(experiment_number) + "/" + file_loc + "/cross sections/" + title + ".png")
