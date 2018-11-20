@@ -11,7 +11,7 @@ from data_processing import getCleanData
 import numpy as np
 import pandas as pd
 
-from graphing import plot_confidences, plot_inertia, plot_gaussian_popularity, plot_components
+from graphing import plot_confidences, plot_inertia, plot_gaussian_popularity, plot_components, plot_cross_section
 
 
 def experiment_1(num_classes_breast_cancer, breast_cancer_data, num_classes_user, user_knowledge_data,
