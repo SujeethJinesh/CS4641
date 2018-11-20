@@ -74,15 +74,17 @@ def run_PCA(X, y):
     X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,
                                                                         test_size=0.2)  # produces good shuffled train and test sets
     algorithm = PCA(random_state=0, n_components=0.99)
+
     transformed_X_train = algorithm.fit_transform(X_train)
+    df = pd.DataFrame()
+    df['label'] = pd.Series([i[0] for i in y_train.tolist()])
+    df['pca-one'] = transformed_X_train[:, 0]
+    df['pca-two'] = transformed_X_train[:, 1]
     transformed_X_test = algorithm.transform(X_test)
 
     confidence = algorithm.score(X_test, y_test)
 
-    import ipdb;
-    ipdb.set_trace()
-
-    return confidence, transformed_X_train, transformed_X_test
+    return confidence, transformed_X_train, transformed_X_test, df
 
 
 def run_Kmeans(X, y, experiment_number, dataset_name, neighbors=None):

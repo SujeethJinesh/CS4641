@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import learning_curve
 import itertools
-
+from ggplot import ggplot, geom_point, ggtitle, aes
+import pandas as pd
 
 def plot(x_axis, y_axis, title=None):
     plt.plot(x_axis, y_axis, 'g^')
@@ -212,4 +213,13 @@ def plot_gaussian_popularity(transformed_X_train, xlabel, title, file_loc, exper
     counts = counts.tolist()
     plt.bar(unique, counts)
     plt.savefig("images/experiment_" + str(
-        experiment_number) + "/" + dataset_name + "/" + file_loc + "/gaussian_popularity/" + title + " " + str(len(unique)) + " gaussians.png")
+        experiment_number) + "/" + dataset_name + "/" + file_loc + "/gaussian_popularity/" + title + " " + str(
+        len(unique)) + " gaussians.png")
+
+
+def plot_PCA(df, title, file_loc, experiment_number, dataset_name):
+    chart = ggplot(df, aes(x='pca-one', y='pca-two', color='label')) \
+            + geom_point(size=75, alpha=0.8) \
+            + ggtitle(title)
+    chart.save("images/experiment_" + str(
+        experiment_number) + "/" + dataset_name + "/" + file_loc + "/" + title + ".png")

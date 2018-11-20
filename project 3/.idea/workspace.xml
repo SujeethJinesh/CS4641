@@ -10,26 +10,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6682526">
+    <splitter split-orientation="horizontal" split-proportion="0.5955882">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.48963732">
+        <splitter split-orientation="horizontal" split-proportion="0.5">
           <split-first>
             <leaf>
-              <file leaf-file-name="graphing.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/graphing.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="-7">
-                      <caret line="103" column="12" lean-forward="false" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/main.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="2885">
-                      <caret line="205" column="85" lean-forward="false" selection-start-line="205" selection-start-column="85" selection-end-line="205" selection-end-column="85" />
+                    <state relative-caret-position="647">
+                      <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
                       <folding>
                         <element signature="e#0#33#0" expanded="true" />
                       </folding>
@@ -41,14 +31,12 @@
           </split-first>
           <split-second>
             <leaf>
-              <file leaf-file-name="clustering_algorithms.py" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
+              <file leaf-file-name="graphing.py" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/graphing.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="659">
-                      <caret line="79" column="48" lean-forward="true" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
-                      <folding>
-                        <element signature="e#0#35#0" expanded="true" />
-                      </folding>
+                    <state relative-caret-position="1260">
+                      <caret line="224" column="69" lean-forward="false" selection-start-line="224" selection-start-column="69" selection-end-line="224" selection-end-column="69" />
+                      <folding />
                     </state>
                   </provider>
                 </entry>
@@ -59,12 +47,14 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="graphing.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/graphing.py">
+          <file leaf-file-name="clustering_algorithms.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="103" column="12" lean-forward="false" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
-                  <folding />
+                <state relative-caret-position="983">
+                  <caret line="114" column="51" lean-forward="true" selection-start-line="114" selection-start-column="51" selection-end-line="114" selection-end-column="51" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -89,9 +79,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main_breast_cancer.py" />
+        <option value="$PROJECT_DIR$/clustering_algorithms.py" />
         <option value="$PROJECT_DIR$/graphing.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/clustering_algorithms.py" />
       </list>
     </option>
   </component>
@@ -133,6 +123,42 @@
               <item name="project 3" type="b2602c69:ProjectViewProjectNode" />
               <item name="project 3" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project 3" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="experiment_2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project 3" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="experiment_2" type="462c0819:PsiDirectoryNode" />
+              <item name="breast_cancer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project 3" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="experiment_2" type="462c0819:PsiDirectoryNode" />
+              <item name="breast_cancer" type="462c0819:PsiDirectoryNode" />
+              <item name="PCA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project 3" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="experiment_2" type="462c0819:PsiDirectoryNode" />
+              <item name="user_knowledge" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project 3" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="experiment_2" type="462c0819:PsiDirectoryNode" />
+              <item name="user_knowledge" type="462c0819:PsiDirectoryNode" />
+              <item name="PCA" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -227,16 +253,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/Kmeans/cross sections/Kmeans (8 neighbors) 4 vs 3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/Kmeans/cross sections/Kmeans (8 neighbors) 2 vs 4.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/Kmeans/cross sections/Kmeans (8 neighbors) 0 vs 7.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -467,30 +483,40 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="983">
+          <caret line="114" column="51" lean-forward="true" selection-start-line="114" selection-start-column="51" selection-end-line="114" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_2/breast_cancer/PCA/Breast Cancer First and Second Principal Components colored by Class.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_2/user_knowledge/PCA/User Knowledge First and Second Principal Components colored by Class.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/graphing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="103" column="12" lean-forward="false" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
+        <state relative-caret-position="1260">
+          <caret line="224" column="69" lean-forward="false" selection-start-line="224" selection-start-column="69" selection-end-line="224" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2885">
-          <caret line="205" column="85" lean-forward="false" selection-start-line="205" selection-start-column="85" selection-end-line="205" selection-end-column="85" />
+        <state relative-caret-position="647">
+          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="79" column="48" lean-forward="true" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
