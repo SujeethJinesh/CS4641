@@ -1,8 +1,4 @@
 from sklearn import preprocessing
-from sklearn.cluster import KMeans
-from sklearn.mixture import GaussianMixture
-from sklearn.decomposition import PCA
-from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 
 from clustering_algorithms import run_clustering_algo_single, run_Kmeans, run_GMM, run_PCA, run_Neural_Net
@@ -30,7 +26,7 @@ def experiment_1(num_classes_breast_cancer, breast_cancer_data, num_classes_user
         confidence, inertia, transformed_X_train, transformed_X_test, df = run_Kmeans(breast_cancer_X_train,
                                                                                       breast_cancer_X_test,
                                                                                       breast_cancer_y_train,
-                                                                                      breast_cancer_y_test, 1,
+                                                                                      breast_cancer_y_test, experiment_number,
                                                                                       "breast_cancer", neighbors=i)
         breast_cancer_kmeans_data.append((transformed_X_train, transformed_X_test, breast_cancer_y_train,
                                           breast_cancer_y_test))
@@ -41,7 +37,7 @@ def experiment_1(num_classes_breast_cancer, breast_cancer_data, num_classes_user
     plot_inertia(inertias, breast_cancer_range, "neighbors", "Breast Cancer Inertia vs Neighbors (Kmeans)", "Kmeans",
                  experiment_number,
                  "breast_cancer")
-    plot_components(df, "Breast Cancer First and Second Principal Components colored by Class", "Kmeans",
+    plot_components(df, "Breast Cancer First and Second Components colored by Class", "Kmeans",
                     experiment_number,
                     "breast_cancer")
 
@@ -61,7 +57,7 @@ def experiment_1(num_classes_breast_cancer, breast_cancer_data, num_classes_user
                      "Kmeans", experiment_number, "user_knowledge")
     plot_inertia(inertias, user_knowledge_range, "neighbors", "User Knowledge Inertia vs Neighbors (Kmeans)", "Kmeans",
                  experiment_number, "user_knowledge")
-    plot_components(df, "User Knowledge First and Second Principal Components colored by Class", "Kmeans",
+    plot_components(df, "User Knowledge First and Second Components colored by Class", "Kmeans",
                     experiment_number,
                     "user_knowledge")
 
@@ -232,18 +228,17 @@ def main():
     # Experiment 1
     breast_cancer_kmeans_data, breast_cancer_gmm_data = experiment_1(num_classes_breast_cancer, breast_cancer_data,
                                                                      num_classes_user, user_knowledge_data)
-
     # Experiment 2
     pca_breast_cancer_data, pca_user_knowledge_data = experiment_2(breast_cancer_data, user_knowledge_data)
 
     # Experiment 3
-    experiment_3(num_classes_breast_cancer, pca_breast_cancer_data, num_classes_user, pca_user_knowledge_data)
+    # experiment_3(num_classes_breast_cancer, pca_breast_cancer_data, num_classes_user, pca_user_knowledge_data)
 
     # Experiment 4
-    experiment_4(pca_breast_cancer_data)
+    # experiment_4(pca_breast_cancer_data)
 
     # Experiment 5
-    experiment_5(breast_cancer_kmeans_data, breast_cancer_gmm_data)
+    # experiment_5(breast_cancer_kmeans_data, breast_cancer_gmm_data)
 
 
 if __name__ == "__main__":

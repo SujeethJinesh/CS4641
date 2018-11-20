@@ -82,7 +82,7 @@ def run_PCA(X_train, X_test, y_train, y_test):
     transformed_X_test = algorithm.transform(X_test)
 
     confidence = algorithm.score(X_test, y_test)
-
+    import ipdb; ipdb.set_trace()
     return confidence, transformed_X_train, transformed_X_test, df
 
 

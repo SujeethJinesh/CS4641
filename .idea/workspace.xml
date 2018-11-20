@@ -2,60 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73ae1839-e3c0-4d8a-a436-22e7fe938caf" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/project 2/data/breast_cancer/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/project 2/data/breast_cancer/breast-cancer-wisconsin.names.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/project 2/data/breast_cancer/breast_cancer_wisconsin.data.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/project 2/data_processing.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/project 2/graphing.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/project 2/main_breast_cancer.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/project 2/supervised_learning_algorithms.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer AdaBoost Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer AdaBoost Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer Decision Tree Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer Decision Tree Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer KNN Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer KNN Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer Neural Net Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer Neural Net Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer SVM Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Breast Cancer SVM Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer AdaBoost Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer AdaBoost Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer Decision Tree Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer Decision Tree Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer KNN Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer KNN Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer Neural Net Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer Neural Net Learning Curve.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Lung Cancer SVM Confusion Matrix.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/README.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/Supervised-Learning.pdf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/correlation.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/correlation.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/correlation_lung.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/correlation_lung.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/data/breast_cancer/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/data/breast_cancer/breast-cancer-wisconsin.names.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/data/breast_cancer/breast_cancer_wisconsin.data.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/data/lung_cancer/lung-cancer.data" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/data/lung_cancer/lung-cancer.names" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/data_processing.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/desc_plot.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/describe.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/describe.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/describe_lung.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/describe_lung.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/graphing.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/main_breast_cancer.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/main_lung_cancer.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/notes/27140029_1534220746655854_932311086_o.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/notes/27329937_1534220529989209_1137173790_o.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/requirements.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/sjinesh3-analysis.pdf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/supervised_learning_algorithms.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/tree.dot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/SupervisedLearning/tree.png" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,12 +12,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="main_breast_cancer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project 2/main_breast_cancer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,6 +105,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,17 +113,11 @@
               <item name="CS4641" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS4641" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CS4641" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS4641" type="462c0819:PsiDirectoryNode" />
-              <item name="project 2" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,21 +164,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -339,28 +280,18 @@
     <entry file="file://$PROJECT_DIR$/SupervisedLearning/data/lung_cancer/lung-cancer.names" />
     <entry file="file://$PROJECT_DIR$/SupervisedLearning/README.txt" />
     <entry file="file://$PROJECT_DIR$/SupervisedLearning/main_breast_cancer.py" />
-    <entry file="file://$PROJECT_DIR$/project 2/data/lung_cancer/lung-cancer.data">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/project 2/data/lung_cancer/lung-cancer.data" />
     <entry file="file://$PROJECT_DIR$/project 1/main_breast_cancer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project 2/main_breast_cancer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>

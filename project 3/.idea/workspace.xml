@@ -10,16 +10,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6141176">
+    <splitter split-orientation="horizontal" split-proportion="0.63714635">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.578712">
+        <splitter split-orientation="horizontal" split-proportion="0.7246377">
           <split-first>
             <leaf>
               <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/main.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="401">
-                      <caret line="219" column="41" lean-forward="false" selection-start-line="219" selection-start-column="41" selection-end-line="219" selection-end-column="41" />
+                    <state relative-caret-position="637">
+                      <caret line="229" column="31" lean-forward="false" selection-start-line="229" selection-start-column="31" selection-end-line="229" selection-end-column="31" />
                       <folding>
                         <element signature="e#0#33#0" expanded="true" />
                       </folding>
@@ -27,11 +27,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/README.md">
+              <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/requirements.txt">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="30">
-                      <caret line="2" column="141" lean-forward="false" selection-start-line="2" selection-start-column="141" selection-end-line="2" selection-end-column="141" />
+                    <state relative-caret-position="165">
+                      <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
                       <folding />
                     </state>
                   </provider>
@@ -44,8 +44,8 @@
               <file leaf-file-name="graphing.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/graphing.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="306">
-                      <caret line="162" column="4" lean-forward="false" selection-start-line="162" selection-start-column="4" selection-end-line="162" selection-end-column="4" />
+                    <state relative-caret-position="443">
+                      <caret line="195" column="11" lean-forward="false" selection-start-line="195" selection-start-column="11" selection-end-line="195" selection-end-column="11" />
                       <folding />
                     </state>
                   </provider>
@@ -60,8 +60,8 @@
           <file leaf-file-name="clustering_algorithms.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="836">
-                  <caret line="157" column="71" lean-forward="false" selection-start-line="157" selection-start-column="71" selection-end-line="157" selection-end-column="71" />
+                <state relative-caret-position="491">
+                  <caret line="84" column="32" lean-forward="false" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
                   </folding>
@@ -84,6 +84,7 @@
     <findStrings>
       <find>mlp</find>
       <find>classifier</find>
+      <find>first and second</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -91,9 +92,10 @@
       <list>
         <option value="$PROJECT_DIR$/main_breast_cancer.py" />
         <option value="$PROJECT_DIR$/graphing.py" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/clustering_algorithms.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -129,11 +131,6 @@
             <path>
               <item name="project 3" type="b2602c69:ProjectViewProjectNode" />
               <item name="project 3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project 3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project 3" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -193,7 +190,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -201,7 +197,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1109375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.153125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -228,46 +224,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (7 neighbors) 1 vs 3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (8 neighbors) 0 vs 3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (8 neighbors) 7 vs 5.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (9 neighbors) 6 vs 8.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (9 neighbors) 4 vs 1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/confidences/Breast Cancer Confidence vs Neighbors (Kmeans).png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/user_knowledge/Kmeans/confidences/User Knowledge Confidence vs Neighbors (Kmeans).png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/user_knowledge/Kmeans/inertias/User Knowledge Inertia vs Neighbors (Kmeans).png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/GMM/gaussian_popularity/Breast Cancer Confidence vs Cluster (GMM with EM).png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -349,11 +305,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/GMM/gaussian_popularity/Breast Cancer Confidence vs Cluster (GMM with EM) 9 gaussians.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/Breast Cancer First and Second Principal Components colored by Class.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -453,16 +404,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="157" column="71" lean-forward="false" selection-start-line="157" selection-start-column="71" selection-end-line="157" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer PCA Neural Net Learning Curve.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -473,28 +414,86 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="53" lean-forward="false" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/Breast Cancer First and Second Principal Components colored by Class.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (9 neighbors) 5 vs 1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (9 neighbors) 4 vs 8.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (9 neighbors) 3 vs 4.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (8 neighbors) 5 vs 0.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (8 neighbors) 6 vs 0.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (8 neighbors) 7 vs 4.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (9 neighbors) 1 vs 5.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/graphing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="162" column="4" lean-forward="false" selection-start-line="162" selection-start-column="4" selection-end-line="162" selection-end-column="4" />
+        <state relative-caret-position="443">
+          <caret line="195" column="11" lean-forward="false" selection-start-line="195" selection-start-column="11" selection-end-line="195" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="84" column="32" lean-forward="false" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="219" column="41" lean-forward="false" selection-start-line="219" selection-start-column="41" selection-end-line="219" selection-end-column="41" />
+        <state relative-caret-position="637">
+          <caret line="229" column="31" lean-forward="false" selection-start-line="229" selection-start-column="31" selection-end-line="229" selection-end-column="31" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="141" lean-forward="false" selection-start-line="2" selection-start-column="141" selection-end-line="2" selection-end-column="141" />
+        <state relative-caret-position="165">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
           <folding />
         </state>
       </provider>
