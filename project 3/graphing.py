@@ -12,7 +12,7 @@ def plot(x_axis, y_axis, title=None):
     plt.show()
 
 
-def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
+def plot_learning_curve(estimator, path, title, X, y, ylim=None, cv=None,
                         n_jobs=1, train_sizes=np.linspace(.1, 1.0, 5)):
     """
     Generate a simple plot of the test and training learning curve.
@@ -81,11 +81,11 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
              label="Cross-validation score")
 
     plt.legend(loc="best")
-    plt.savefig(title + ".png")
+    plt.savefig(path + title + ".png")
     return plt
 
 
-def plot_confusion_matrix(cm, classes, algorithm,
+def plot_confusion_matrix(cm, classes, path,
                           normalize=False,
                           title='Confusion matrix',
                           cmap=plt.cm.Blues):
@@ -119,7 +119,7 @@ def plot_confusion_matrix(cm, classes, algorithm,
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
-    plt.savefig("images/" + algorithm + "/" + title + ".png")
+    plt.savefig(path + title + ".png")
     return plt
 
 

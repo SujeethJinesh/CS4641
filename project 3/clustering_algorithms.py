@@ -5,8 +5,9 @@ from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import PCA
 import numpy as np
 import pandas as pd
+from sklearn.neural_network import MLPClassifier
 
-from graphing import plot_confusion_matrix, plot_cross_section
+from graphing import plot_confusion_matrix, plot_cross_section, plot_learning_curve
 
 
 def run_clustering_algo_single(X, y, algorithm, classifier, as_int=False, neighbors=None, cross_sections=False):
@@ -132,3 +133,27 @@ def run_GMM(X_train, X_test, y_train, y_test, neighbors=None):
     confidence = algorithm.score(X_test, y_test)
 
     return confidence, transformed_X_train, transformed_X_test
+
+
+def run_Neural_Net(breast_cancer_data, path, algorithm, neighbors=None):
+    classifier = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=4)
+    breast_cancer_X_train, breast_cancer_X_test, breast_cancer_y_train, breast_cancer_y_test = breast_cancer_data
+
+    classifier.fit(breast_cancer_X_train, breast_cancer_y_train)
+
+    test_accuracy = classifier.score(breast_cancer_X_test, breast_cancer_y_test)
+
+    y_pred = classifier.predict(breast_cancer_X_test)
+
+    cm = confusion_matrix(breast_cancer_y_test, y_pred)
+    if neighbors:
+        title = "Breast Cancer " + algorithm + " (" + str(neighbors) + " neighbors) Neural Net Confusion Matrix"
+    else:
+        title = "Breast Cancer " + algorithm + " Neural Net Confusion Matrix"
+
+    plot_confusion_matrix(cm, ["Class 1", "Class 2"], path, title=title)
+
+    X = np.concatenate((breast_cancer_X_train, breast_cancer_X_test))
+    y = np.concatenate((breast_cancer_y_train, breast_cancer_y_test))
+    plot_learning_curve(classifier, path, "Breast Cancer " + algorithm + " Neural Net Learning Curve", X, y)
+    return test_accuracy

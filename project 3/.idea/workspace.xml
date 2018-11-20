@@ -10,16 +10,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5955882">
+    <splitter split-orientation="horizontal" split-proportion="0.6141176">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.54343146">
+        <splitter split-orientation="horizontal" split-proportion="0.578712">
           <split-first>
             <leaf>
               <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/main.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="2688">
-                      <caret line="265" column="20" lean-forward="true" selection-start-line="265" selection-start-column="20" selection-end-line="265" selection-end-column="20" />
+                    <state relative-caret-position="491">
+                      <caret line="225" column="36" lean-forward="false" selection-start-line="225" selection-start-column="36" selection-end-line="225" selection-end-column="36" />
                       <folding>
                         <element signature="e#0#33#0" expanded="true" />
                       </folding>
@@ -34,8 +34,8 @@
               <file leaf-file-name="graphing.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/graphing.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1163">
-                      <caret line="219" column="9" lean-forward="false" selection-start-line="219" selection-start-column="9" selection-end-line="219" selection-end-column="9" />
+                    <state relative-caret-position="481">
+                      <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
                       <folding />
                     </state>
                   </provider>
@@ -50,8 +50,8 @@
           <file leaf-file-name="clustering_algorithms.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="608">
-                  <caret line="84" column="63" lean-forward="false" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="63" />
+                <state relative-caret-position="836">
+                  <caret line="157" column="71" lean-forward="false" selection-start-line="157" selection-start-column="71" selection-end-line="157" selection-end-column="71" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
                   </folding>
@@ -73,6 +73,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>mlp</find>
+      <find>classifier</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -80,8 +81,8 @@
       <list>
         <option value="$PROJECT_DIR$/main_breast_cancer.py" />
         <option value="$PROJECT_DIR$/graphing.py" />
-        <option value="$PROJECT_DIR$/clustering_algorithms.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/clustering_algorithms.py" />
       </list>
     </option>
   </component>
@@ -92,10 +93,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-1120" />
-    <option name="y" value="-1440" />
-    <option name="width" value="2560" />
-    <option name="height" value="1440" />
+    <option name="x" value="1440" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -181,8 +181,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1120" y="-1440" width="2560" height="1440" extended-state="0" />
-    <editor active="true" />
+    <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -190,7 +189,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0859375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22864583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -217,81 +216,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/GMM/Breast Cancer GMM with EM (1 neighbors) Confusion Matrix.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/Breast Cancer K Means (1 neighbors) Neural Net Confusion Matrix.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/Breast Cancer K Means (9 neighbors) Neural Net Confusion Matrix.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/Breast Cancer Kmeans (3 neighbors) Neural Net Confusion Matrix.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/Breast Cancer Kmeans (7 neighbors) Neural Net Confusion Matrix.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/GMM/Breast Cancer GMM (3 neighbors) Neural Net Confusion Matrix.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/GMM/Breast Cancer GMM with EM (2 neighbors) Confusion Matrix.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (2 neighbors) 0 vs 1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (3 neighbors) 0 vs 1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (3 neighbors) 0 vs 2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (4 neighbors) 0 vs 3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (5 neighbors) 2 vs 0.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (5 neighbors) 4 vs 0.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (6 neighbors) 3 vs 1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (6 neighbors) 4 vs 5.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/experiment_1/breast_cancer/Kmeans/cross sections/Kmeans (7 neighbors) 0 vs 2.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -432,24 +356,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1163">
-          <caret line="219" column="9" lean-forward="false" selection-start-line="219" selection-start-column="9" selection-end-line="219" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="84" column="63" lean-forward="false" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/experiment_3/breast_cancer/Kmeans/inertias/Breast Cancer Inertia vs Neighbors (Kmeans).png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -475,10 +381,103 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/correlation.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Breast Cancer PCA Neural Net Learning Curve.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_4/breast_cancer/PCA/Breast Cancer PCA Neural Net Learning Curve.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_4/breast_cancer/PCA/Breast Cancer PCA Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (2 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (1 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (3 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (4 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (5 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (6 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (7 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (8 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer GMM (9 neighbors) Neural Net Confusion Matrix.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustering_algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="157" column="71" lean-forward="false" selection-start-line="157" selection-start-column="71" selection-end-line="157" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/GMM/Breast Cancer PCA Neural Net Learning Curve.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/experiment_5/breast_cancer/Kmeans/Breast Cancer PCA Neural Net Learning Curve.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2688">
-          <caret line="265" column="20" lean-forward="true" selection-start-line="265" selection-start-column="20" selection-end-line="265" selection-end-column="20" />
+        <state relative-caret-position="491">
+          <caret line="225" column="36" lean-forward="false" selection-start-line="225" selection-start-column="36" selection-end-line="225" selection-end-column="36" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
