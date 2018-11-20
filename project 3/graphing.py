@@ -159,7 +159,7 @@ def plot_contours(ax, clf, xx, yy, **params):
     return out
 
 
-def plot_cross_section(transformed_X, cross_section, file_loc, neighbors, experiment_number):
+def plot_cross_section(transformed_X, cross_section, file_loc, neighbors, experiment_number, dataset_name):
     plt.close()
     plt.figure()
     title = file_loc + " (" + str(neighbors) + " neighbors) " + str(cross_section[0]) + " vs " + str(cross_section[1])
@@ -169,4 +169,47 @@ def plot_cross_section(transformed_X, cross_section, file_loc, neighbors, experi
     x = transformed_X[:, cross_section[0]]
     y = transformed_X[:, cross_section[1]]
     plt.scatter(x, y)
-    plt.savefig("images/experiment_" + str(experiment_number) + "/" + file_loc + "/cross sections/" + title + ".png")
+    plt.savefig("images/experiment_" + str(
+        experiment_number) + "/" + dataset_name + "/" + file_loc + "/cross sections/" + title + ".png")
+
+
+def plot_confidences(confidences, y, xlabel, title, file_loc, experiment_number, dataset_name):
+    plt.close()
+    plt.figure()
+    plt.title(title)
+    plt.grid()
+    plt.ylabel("confidence")
+    plt.xlabel(xlabel)
+
+    plt.plot(y, confidences, 'go--')
+    plt.savefig("images/experiment_" + str(
+        experiment_number) + "/" + dataset_name + "/" + file_loc + "/confidences/" + title + ".png")
+
+
+def plot_inertia(confidences, y, xlabel, title, file_loc, experiment_number, dataset_name):
+    plt.close()
+    plt.figure()
+    plt.title(title)
+    plt.grid()
+    plt.ylabel("inertia")
+    plt.xlabel(xlabel)
+
+    plt.plot(y, confidences, 'go--')
+    plt.savefig("images/experiment_" + str(
+        experiment_number) + "/" + dataset_name + "/" + file_loc + "/inertias/" + title + ".png")
+
+
+def plot_gaussian_popularity(transformed_X_train, xlabel, title, file_loc, experiment_number, dataset_name):
+    plt.close()
+    plt.figure()
+    plt.title(title)
+    plt.grid()
+    plt.ylabel("# of points")
+    plt.xlabel(xlabel)
+
+    unique, counts = np.unique(transformed_X_train, return_counts=True)
+    unique = unique.tolist()
+    counts = counts.tolist()
+    plt.bar(unique, counts)
+    plt.savefig("images/experiment_" + str(
+        experiment_number) + "/" + dataset_name + "/" + file_loc + "/gaussian_popularity/" + title + " " + str(len(unique)) + " gaussians.png")

@@ -4,7 +4,6 @@ from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import PCA
 import numpy as np
-import itertools
 import pandas as pd
 
 from graphing import plot_confusion_matrix, plot_cross_section
@@ -71,32 +70,14 @@ def run_clustering_algo_single(X, y, algorithm, classifier, as_int=False, neighb
     return confidence, test_accuracy
 
 
-def run_PCA(X, y, experiment_number, as_int=False, neighbors=None):
+def run_PCA(X, y):
     X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,
                                                                         test_size=0.2)  # produces good shuffled train and test sets
-    if as_int:
-        X_train = X_train.astype('int')
-        X_test = X_test.astype('int')
-        y_test = y_test.astype('int')
-    if neighbors:
-        algorithm = PCA(random_state=0, n_components=neighbors)
-    else:
-        algorithm = PCA(random_state=0)
+    algorithm = PCA(random_state=0, n_components=0.99)
     transformed_X_train = algorithm.fit_transform(X_train)
     transformed_X_test = algorithm.transform(X_test)
-    title = "PCA"
 
     confidence = algorithm.score(X_test, y_test)
-    if neighbors >= 2:
-        df = pd.DataFrame(transformed_X_train)
-        c = df.corr().abs()
-        s = c.unstack()
-        so = s.sort_values(kind="quicksort")
-        so = so[so != 1]
-        max_cross_section = so.idxmax()
-        min_cross_section = so.idxmin()
-        for cross_section in [max_cross_section, min_cross_section]:
-            plot_cross_section(transformed_X_train, cross_section, title, neighbors, experiment_number)
 
     import ipdb;
     ipdb.set_trace()
@@ -104,13 +85,9 @@ def run_PCA(X, y, experiment_number, as_int=False, neighbors=None):
     return confidence, transformed_X_train, transformed_X_test
 
 
-def run_Kmeans(X, y, experiment_number, as_int=False, neighbors=None):
+def run_Kmeans(X, y, experiment_number, dataset_name, neighbors=None):
     X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,
                                                                         test_size=0.2)  # produces good shuffled train and test sets
-    if as_int:
-        X_train = X_train.astype('int')
-        X_test = X_test.astype('int')
-        y_test = y_test.astype('int')
     if neighbors:
         algorithm = KMeans(random_state=0, n_clusters=neighbors)
     else:
@@ -121,6 +98,7 @@ def run_Kmeans(X, y, experiment_number, as_int=False, neighbors=None):
     title = "Kmeans"
 
     confidence = algorithm.score(X_test, y_test)
+    inertia = algorithm.inertia_
     if neighbors >= 2:
         df = pd.DataFrame(transformed_X_train)
         c = df.corr().abs()
@@ -130,41 +108,23 @@ def run_Kmeans(X, y, experiment_number, as_int=False, neighbors=None):
         max_cross_section = so.idxmax()
         min_cross_section = so.idxmin()
         for cross_section in [max_cross_section, min_cross_section]:
-            plot_cross_section(transformed_X_train, cross_section, title, neighbors, experiment_number)
+            plot_cross_section(transformed_X_train, cross_section, title, neighbors, experiment_number, dataset_name)
 
-    return confidence, transformed_X_train
+    return confidence, inertia, transformed_X_train
 
 
-def run_GMM(X, y, experiment_number, as_int=False, neighbors=None):
+def run_GMM(X, y, neighbors=None):
     X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,
                                                                         test_size=0.2)  # produces good shuffled train and test sets
-    if as_int:
-        X_train = X_train.astype('int')
-        X_test = X_test.astype('int')
-        y_test = y_test.astype('int')
     if neighbors:
-        algorithm = KMeans(random_state=0, n_clusters=neighbors)
+        algorithm = GaussianMixture(random_state=0, n_components=neighbors)
     else:
-        algorithm = KMeans(random_state=0)
+        algorithm = GaussianMixture(random_state=0)
 
     # add conversions
     transformed_X_train = algorithm.fit_predict(X_train)
     transformed_X_train = np.array([[x] for x in transformed_X_train])
-    title = "GMM"
 
     confidence = algorithm.score(X_test, y_test)
-    if neighbors >= 2:
-        df = pd.DataFrame(transformed_X_train)
-        c = df.corr().abs()
-        s = c.unstack()
-        so = s.sort_values(kind="quicksort")
-        so = so[so != 1]
-        max_cross_section = so.idxmax()
-        min_cross_section = so.idxmin()
-        for cross_section in [max_cross_section, min_cross_section]:
-            plot_cross_section(transformed_X_train, cross_section, title, neighbors, experiment_number)
-
-    import ipdb;
-    ipdb.set_trace()
 
     return confidence, transformed_X_train

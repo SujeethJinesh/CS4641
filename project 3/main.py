@@ -4,49 +4,64 @@ from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import PCA
 from sklearn.neural_network import MLPClassifier
 
-from clustering_algorithms import run_clustering_algo_single, run_Kmeans, run_GMM
+from clustering_algorithms import run_clustering_algo_single, run_Kmeans, run_GMM, run_PCA
 from data_processing import getCleanData
 
 import numpy as np
 import pandas as pd
 
-from graphing import plot_cross_section
+from graphing import plot_confidences, plot_inertia, plot_gaussian_popularity
 
 
 def experiment_1(num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y, num_classes_user, user_knowledge_X,
                  user_knowledge_y):
+    breast_cancer_range = list(range(1, num_classes_breast_cancer + 1))
+    user_knowledge_range = list(range(1, num_classes_user + 1))
+
     # Kmeans Breast Cancer
     confidences = []
-    for i in range(1, num_classes_breast_cancer + 1):
-        confidence, _ = run_Kmeans(breast_cancer_X, breast_cancer_Y, 1, neighbors=i)
+    inertias = []
+    for i in breast_cancer_range:
+        confidence, inertia, _ = run_Kmeans(breast_cancer_X, breast_cancer_Y, 1, "breast_cancer", neighbors=i)
         confidences.append(confidence)
-    print(max(confidences))
+        inertias.append(inertia)
+    plot_confidences(confidences, breast_cancer_range, "neighbors", "Breast Cancer Confidence vs Neighbors (Kmeans)", "Kmeans", 1, "breast_cancer")
+    plot_inertia(inertias, breast_cancer_range, "neighbors", "Breast Cancer Inertia vs Neighbors (Kmeans)", "Kmeans", 1, "breast_cancer")
 
     # Kmeans User Knowledge
     confidences = []
-    for i in range(1, num_classes_user + 1):
-        confidence, _ = run_Kmeans(user_knowledge_X, user_knowledge_y, 1, neighbors=i)
+    inertias = []
+    for i in user_knowledge_range:
+        confidence, inertia, _ = run_Kmeans(user_knowledge_X, user_knowledge_y, 1, "user_knowledge", neighbors=i)
         confidences.append(confidence)
-    print(max(confidences))
+        inertias.append(inertia)
+    plot_confidences(confidences, user_knowledge_range, "neighbors", "User Knowledge Confidence vs Neighbors (Kmeans)", "Kmeans", 1, "user_knowledge")
+    plot_inertia(inertias, user_knowledge_range, "neighbors", "User Knowledge Inertia vs Neighbors (Kmeans)", "Kmeans", 1, "user_knowledge")
 
     # GMM with EM Breast Cancer
     confidences = []
-    for i in range(1, num_classes_user + 1):
-        confidence, _ = run_GMM(breast_cancer_X, breast_cancer_Y, 1, neighbors=i)
+    for i in breast_cancer_range:
+        confidence, transformed_X_train = run_GMM(breast_cancer_X, breast_cancer_Y, neighbors=i)
         confidences.append(confidence)
-    print(max(confidences))
+        plot_gaussian_popularity(transformed_X_train, "gaussians", "Breast Cancer Confidence vs Cluster (GMM with EM)", "GMM", 1, "breast_cancer")
+    plot_confidences(confidences, breast_cancer_range, "gaussians", "Breast Cancer Confidence vs Neighbors (GMM with EM)", "GMM", 1, "breast_cancer")
 
     # GMM with EM User Knowledge
     confidences = []
-    for i in range(1, num_classes_user + 1):
-        confidence, _ = run_GMM(user_knowledge_X, user_knowledge_y, 1, neighbors=i)
+    for i in user_knowledge_range:
+        confidence, transformed_X_train = run_GMM(user_knowledge_X, user_knowledge_y, neighbors=i)
         confidences.append(confidence)
-    print(max(confidences))
+        plot_gaussian_popularity(transformed_X_train, "gaussians", "User Knowledge Points vs Cluster (GMM with EM)",
+                                 "GMM", 1, "user_knowledge")
+    plot_confidences(confidences, user_knowledge_range, "gaussians", "User Knowledge Confidence vs Neighbors (GMM with EM)", "GMM", 1, "user_knowledge")
 
 
-def experiment_2():
-    pass
+def experiment_2(breast_cancer_X, breast_cancer_Y, user_knowledge_X, user_knowledge_y):
+    # PCA Breast Cancer
+    confidence, transformed_X_train = run_PCA(breast_cancer_X, breast_cancer_Y)
 
+    # PCA User Knowledge
+    confidence, transformed_X_train = run_PCA(user_knowledge_X, user_knowledge_y)
 
 def experiment_3():
     pass
@@ -177,22 +192,19 @@ def main():
     # 1. K means
     # 2. GMM with EM
     # 3. PCA
-    experiment_1
     classifier = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=4)
 
-    cross_sections = [["Bare Nuclei", "Mitoses"],
-                      ["Uniformity of Cell Shape", "Uniformity of Cell Size"]]
-    for cross_section in cross_sections:
-        cross_section[0] = cancer_data.columns.get_loc(cross_section[0])
-        cross_section[1] = cancer_data.columns.get_loc(cross_section[1])
-        plot_cross_section(X, cross_section, "Pre run", "all")
+    # cross_sections = [["Bare Nuclei", "Mitoses"],
+    #                   ["Uniformity of Cell Shape", "Uniformity of Cell Size"]]
+    # for cross_section in cross_sections:
+    #     cross_section[0] = cancer_data.columns.get_loc(cross_section[0])
+    #     cross_section[1] = cancer_data.columns.get_loc(cross_section[1])
+    #     plot_cross_section(X, cross_section, "Pre run", "all")
 
-    # import ipdb;
-    # ipdb.set_trace()
-
-    experiment_1(num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y, num_classes_user, user_knowledge_X,
-                 user_knowledge_y)
-    experiment_2()
+    # experiment_1(num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y, num_classes_user, user_knowledge_X,
+    #              user_knowledge_y)
+    experiment_2(breast_cancer_X, breast_cancer_Y, user_knowledge_X, user_knowledge_y)
+    import ipdb; ipdb.set_trace()
     experiment_3()
     experiment_4(classifier, num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y)
     experiment_5(classifier, num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y)
