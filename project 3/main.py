@@ -3,6 +3,7 @@ from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import PCA
 from sklearn.neural_network import MLPClassifier
+from sklearn.model_selection import train_test_split
 
 from clustering_algorithms import run_clustering_algo_single, run_Kmeans, run_GMM, run_PCA
 from data_processing import getCleanData
@@ -10,71 +11,109 @@ from data_processing import getCleanData
 import numpy as np
 import pandas as pd
 
-from graphing import plot_confidences, plot_inertia, plot_gaussian_popularity, plot_PCA
+from graphing import plot_confidences, plot_inertia, plot_gaussian_popularity, plot_components
 
 
-def experiment_1(num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y, num_classes_user, user_knowledge_X,
-                 user_knowledge_y):
+def experiment_1(num_classes_breast_cancer, breast_cancer_data, num_classes_user, user_knowledge_data, experiment_number=1):
     breast_cancer_range = list(range(1, num_classes_breast_cancer + 1))
     user_knowledge_range = list(range(1, num_classes_user + 1))
+
+    breast_cancer_X_train, breast_cancer_X_test, breast_cancer_y_train, breast_cancer_y_test = breast_cancer_data
+    user_knowledge_X_train, user_knowledge_X_test, user_knowledge_y_train, user_knowledge_y_test = user_knowledge_data
 
     # Kmeans Breast Cancer
     confidences = []
     inertias = []
     for i in breast_cancer_range:
-        confidence, inertia, _ = run_Kmeans(breast_cancer_X, breast_cancer_Y, 1, "breast_cancer", neighbors=i)
+        confidence, inertia, transformed_X_train, transformed_X_test, df = run_Kmeans(breast_cancer_X_train,
+                                                                                      breast_cancer_X_test,
+                                                                                      breast_cancer_y_train,
+                                                                                      breast_cancer_y_test, 1,
+                                                                                      "breast_cancer", neighbors=i)
         confidences.append(confidence)
         inertias.append(inertia)
     plot_confidences(confidences, breast_cancer_range, "neighbors", "Breast Cancer Confidence vs Neighbors (Kmeans)",
-                     "Kmeans", 1, "breast_cancer")
-    plot_inertia(inertias, breast_cancer_range, "neighbors", "Breast Cancer Inertia vs Neighbors (Kmeans)", "Kmeans", 1,
+                     "Kmeans", experiment_number, "breast_cancer")
+    plot_inertia(inertias, breast_cancer_range, "neighbors", "Breast Cancer Inertia vs Neighbors (Kmeans)", "Kmeans", experiment_number,
                  "breast_cancer")
+    plot_components(df, "Breast Cancer First and Second Principal Components colored by Class", "Kmeans", experiment_number,
+                    "breast_cancer")
 
     # Kmeans User Knowledge
     confidences = []
     inertias = []
     for i in user_knowledge_range:
-        confidence, inertia, _ = run_Kmeans(user_knowledge_X, user_knowledge_y, 1, "user_knowledge", neighbors=i)
+        confidence, inertia, transformed_X_train, transformed_X_test, df = run_Kmeans(user_knowledge_X_train,
+                                                                                      user_knowledge_X_test,
+                                                                                      user_knowledge_y_train,
+                                                                                      user_knowledge_y_test, experiment_number,
+                                                                                      "user_knowledge", neighbors=i)
         confidences.append(confidence)
         inertias.append(inertia)
     plot_confidences(confidences, user_knowledge_range, "neighbors", "User Knowledge Confidence vs Neighbors (Kmeans)",
-                     "Kmeans", 1, "user_knowledge")
+                     "Kmeans", experiment_number, "user_knowledge")
     plot_inertia(inertias, user_knowledge_range, "neighbors", "User Knowledge Inertia vs Neighbors (Kmeans)", "Kmeans",
-                 1, "user_knowledge")
+                 experiment_number, "user_knowledge")
+    plot_components(df, "User Knowledge First and Second Principal Components colored by Class", "Kmeans", experiment_number,
+                    "user_knowledge")
 
     # GMM with EM Breast Cancer
     confidences = []
     for i in breast_cancer_range:
-        confidence, transformed_X_train = run_GMM(breast_cancer_X, breast_cancer_Y, neighbors=i)
+        confidence, transformed_X_train, transformed_X_test = run_GMM(breast_cancer_X_train, breast_cancer_X_test,
+                                                                      breast_cancer_y_train, breast_cancer_y_test,
+                                                                      neighbors=i)
         confidences.append(confidence)
         plot_gaussian_popularity(transformed_X_train, "gaussians", "Breast Cancer Confidence vs Cluster (GMM with EM)",
-                                 "GMM", 1, "breast_cancer")
+                                 "GMM", experiment_number, "breast_cancer")
     plot_confidences(confidences, breast_cancer_range, "gaussians",
-                     "Breast Cancer Confidence vs Neighbors (GMM with EM)", "GMM", 1, "breast_cancer")
+                     "Breast Cancer Confidence vs Neighbors (GMM with EM)", "GMM", experiment_number, "breast_cancer")
 
     # GMM with EM User Knowledge
     confidences = []
     for i in user_knowledge_range:
-        confidence, transformed_X_train = run_GMM(user_knowledge_X, user_knowledge_y, neighbors=i)
+        confidence, transformed_X_train, transformed_X_test = run_GMM(user_knowledge_X_train, user_knowledge_X_test,
+                                                                      user_knowledge_y_train, user_knowledge_y_test,
+                                                                      neighbors=i)
         confidences.append(confidence)
         plot_gaussian_popularity(transformed_X_train, "gaussians", "User Knowledge Points vs Cluster (GMM with EM)",
-                                 "GMM", 1, "user_knowledge")
+                                 "GMM", experiment_number, "user_knowledge")
     plot_confidences(confidences, user_knowledge_range, "gaussians",
-                     "User Knowledge Confidence vs Neighbors (GMM with EM)", "GMM", 1, "user_knowledge")
+                     "User Knowledge Confidence vs Neighbors (GMM with EM)", "GMM", experiment_number, "user_knowledge")
 
 
-def experiment_2(breast_cancer_X, breast_cancer_Y, user_knowledge_X, user_knowledge_y):
+def experiment_2(breast_cancer_data, user_knowledge_data):
+    breast_cancer_X_train, breast_cancer_X_test, breast_cancer_y_train, breast_cancer_y_test = breast_cancer_data
+    user_knowledge_X_train, user_knowledge_X_test, user_knowledge_y_train, user_knowledge_y_test = user_knowledge_data
+
     # PCA Breast Cancer
-    _, _, _, df = run_PCA(breast_cancer_X, breast_cancer_Y)
-    plot_PCA(df, "Breast Cancer First and Second Principal Components colored by Class", "PCA", 2, "breast_cancer")
+    _, breast_cancer_transformed_X_train, breast_cancer_transformed_X_test, df = run_PCA(breast_cancer_X_train,
+                                                                                         breast_cancer_X_test,
+                                                                                         breast_cancer_y_train,
+                                                                                         breast_cancer_y_test)
+    plot_components(df, "Breast Cancer First and Second Principal Components colored by Class", "PCA", 2,
+                    "breast_cancer")
 
     # PCA User Knowledge
-    _, _, _, df = run_PCA(user_knowledge_X, user_knowledge_y)
-    plot_PCA(df, "User Knowledge First and Second Principal Components colored by Class", "PCA", 2, "user_knowledge")
+    _, user_knowledge_transformed_X_train, user_knowledge_transformed_X_test, df = run_PCA(user_knowledge_X_train,
+                                                                                           user_knowledge_X_test,
+                                                                                           user_knowledge_y_train,
+                                                                                           user_knowledge_y_test)
+    plot_components(df, "User Knowledge First and Second Principal Components colored by Class", "PCA", 2,
+                    "user_knowledge")
+
+    breast_cancer_data = (
+    breast_cancer_transformed_X_train, breast_cancer_transformed_X_test, breast_cancer_y_train, breast_cancer_y_test)
+    user_knowledge_data = (
+    user_knowledge_transformed_X_train, user_knowledge_transformed_X_test, user_knowledge_y_train,
+    user_knowledge_y_test)
+
+    return breast_cancer_data, user_knowledge_data
 
 
-def experiment_3():
-    pass
+def experiment_3(num_classes_breast_cancer, breast_cancer_data, num_classes_user, user_knowledge_data):
+    # Post PCA values
+    experiment_1(num_classes_breast_cancer, breast_cancer_data, num_classes_user, user_knowledge_data, experiment_number=3)
 
 
 def experiment_4(classifier, num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y):
@@ -211,12 +250,21 @@ def main():
     #     cross_section[1] = cancer_data.columns.get_loc(cross_section[1])
     #     plot_cross_section(X, cross_section, "Pre run", "all")
 
-    # experiment_1(num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y, num_classes_user, user_knowledge_X,
-    #              user_knowledge_y)
-    experiment_2(breast_cancer_X, breast_cancer_Y, user_knowledge_X, user_knowledge_y)
+    breast_cancer_X_train, breast_cancer_X_test, breast_cancer_y_train, breast_cancer_y_test = train_test_split(
+        breast_cancer_X, breast_cancer_Y, test_size=0.2)  # produces good shuffled train and test sets
+    user_knowledge_X_train, user_knowledge_X_test, user_knowledge_y_train, user_knowledge_y_test = train_test_split(
+        user_knowledge_X, user_knowledge_y, test_size=0.2)  # produces good shuffled train and test sets
+
+    breast_cancer_data = (breast_cancer_X_train, breast_cancer_X_test, breast_cancer_y_train, breast_cancer_y_test)
+    user_knowledge_data = (user_knowledge_X_train, user_knowledge_X_test, user_knowledge_y_train, user_knowledge_y_test)
+
+    experiment_1(num_classes_breast_cancer, breast_cancer_data, num_classes_user, user_knowledge_data)
+    new_breast_cancer_data, new_user_knowledge_data = experiment_2(breast_cancer_data, user_knowledge_data)
+    experiment_3(num_classes_breast_cancer, new_breast_cancer_data, num_classes_user, new_user_knowledge_data)
+
     import ipdb;
     ipdb.set_trace()
-    experiment_3()
+
     experiment_4(classifier, num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y)
     experiment_5(classifier, num_classes_breast_cancer, breast_cancer_X, breast_cancer_Y)
 

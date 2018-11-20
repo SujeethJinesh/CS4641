@@ -70,16 +70,14 @@ def run_clustering_algo_single(X, y, algorithm, classifier, as_int=False, neighb
     return confidence, test_accuracy
 
 
-def run_PCA(X, y):
-    X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,
-                                                                        test_size=0.2)  # produces good shuffled train and test sets
+def run_PCA(X_train, X_test, y_train, y_test):
     algorithm = PCA(random_state=0, n_components=0.99)
 
     transformed_X_train = algorithm.fit_transform(X_train)
     df = pd.DataFrame()
     df['label'] = pd.Series([i[0] for i in y_train.tolist()])
-    df['pca-one'] = transformed_X_train[:, 0]
-    df['pca-two'] = transformed_X_train[:, 1]
+    df['comp-one'] = transformed_X_train[:, 0]
+    df['comp-two'] = transformed_X_train[:, 1]
     transformed_X_test = algorithm.transform(X_test)
 
     confidence = algorithm.score(X_test, y_test)
@@ -87,9 +85,7 @@ def run_PCA(X, y):
     return confidence, transformed_X_train, transformed_X_test, df
 
 
-def run_Kmeans(X, y, experiment_number, dataset_name, neighbors=None):
-    X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,
-                                                                        test_size=0.2)  # produces good shuffled train and test sets
+def run_Kmeans(X_train, X_test, y_train, y_test, experiment_number, dataset_name, neighbors=None):
     if neighbors:
         algorithm = KMeans(random_state=0, n_clusters=neighbors)
     else:
@@ -97,13 +93,18 @@ def run_Kmeans(X, y, experiment_number, dataset_name, neighbors=None):
 
     # add conversions
     transformed_X_train = algorithm.fit_transform(X_train)
+    transformed_X_test = algorithm.fit_transform(X_test)
+    df = pd.DataFrame()
     title = "Kmeans"
 
     confidence = algorithm.score(X_test, y_test)
     inertia = algorithm.inertia_
     if neighbors >= 2:
-        df = pd.DataFrame(transformed_X_train)
-        c = df.corr().abs()
+        df['label'] = pd.Series([i[0] for i in y_train.tolist()])
+        df['comp-one'] = transformed_X_train[:, 0]
+        df['comp-two'] = transformed_X_train[:, 1]
+        transformed_df = pd.DataFrame(transformed_X_train)
+        c = transformed_df.corr().abs()
         s = c.unstack()
         so = s.sort_values(kind="quicksort")
         so = so[so != 1]
@@ -112,12 +113,10 @@ def run_Kmeans(X, y, experiment_number, dataset_name, neighbors=None):
         for cross_section in [max_cross_section, min_cross_section]:
             plot_cross_section(transformed_X_train, cross_section, title, neighbors, experiment_number, dataset_name)
 
-    return confidence, inertia, transformed_X_train
+    return confidence, inertia, transformed_X_train, transformed_X_test, df
 
 
-def run_GMM(X, y, neighbors=None):
-    X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,
-                                                                        test_size=0.2)  # produces good shuffled train and test sets
+def run_GMM(X_train, X_test, y_train, y_test, neighbors=None):
     if neighbors:
         algorithm = GaussianMixture(random_state=0, n_components=neighbors)
     else:
@@ -127,6 +126,9 @@ def run_GMM(X, y, neighbors=None):
     transformed_X_train = algorithm.fit_predict(X_train)
     transformed_X_train = np.array([[x] for x in transformed_X_train])
 
+    transformed_X_test = algorithm.fit_predict(X_test)
+    transformed_X_test = np.array([[x] for x in transformed_X_test])
+
     confidence = algorithm.score(X_test, y_test)
 
-    return confidence, transformed_X_train
+    return confidence, transformed_X_train, transformed_X_test

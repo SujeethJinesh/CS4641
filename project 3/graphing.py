@@ -217,8 +217,8 @@ def plot_gaussian_popularity(transformed_X_train, xlabel, title, file_loc, exper
         len(unique)) + " gaussians.png")
 
 
-def plot_PCA(df, title, file_loc, experiment_number, dataset_name):
-    chart = ggplot(df, aes(x='pca-one', y='pca-two', color='label')) \
+def plot_components(df, title, file_loc, experiment_number, dataset_name):
+    chart = ggplot(df, aes(x='comp-one', y='comp-two', color='label')) \
             + geom_point(size=75, alpha=0.8) \
             + ggtitle(title)
     chart.save("images/experiment_" + str(
