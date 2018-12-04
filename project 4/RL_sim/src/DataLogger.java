@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.Date;
-import java.util.Random;
 import java.util.zip.GZIPInputStream;
 
 import javax.swing.JFileChooser;
@@ -40,13 +39,30 @@ public class DataLogger
     public void logValueIteration()
     {
         ValueIteration valItr = new ValueIteration(myMaze,pjog,precision);
-	    while(!valItr.step())
-	        ;
-	    ValueFunction valuefunc = valItr.getValueFunction();
-	    System.out.print(0+"\t");
-	    valuefunc.displayValues();
-	}
-    
+        int numIterations = 0;
+        while(!valItr.step()) {
+            ValueFunction valuefunc = valItr.getValueFunction();
+            System.out.println(++numIterations);
+            System.out.print(0+"\t");
+            valuefunc.displayValues();
+        }
+        System.out.println("Value Iteration Completed");
+    }
+
+    public void logPolicyIteration() {
+        PolicyIteration polItr = new PolicyIteration(myMaze, pjog, precision, 5000, 5000);
+        int numIterations = 0;
+        while (!polItr.step()) {
+            ValueFunction valuefunc = polItr.getValueFunction();
+            System.out.println(++numIterations);
+            System.out.print(0 + "\t");
+            valuefunc.displayValues();
+        }
+//        ValueFunction valuefunc = polItr.getValueFunction();
+//        System.out.println(0+"\t");
+//        valuefunc.displayValues();
+    }
+
     public void logQLearning(int series, int cycles)
     {
         
@@ -66,16 +82,14 @@ public class DataLogger
     public static void main(String[] args)
     {
         DataLogger dl = new DataLogger();
-        
-        //dl.logQLearning(1,100);
-        
-//        dl.logPSweeping();
+
         System.out.println("Value Iteration");
         dl.logValueIteration();
+//
+//        System.out.println("Policy Iteration");
+//        dl.logPolicyIteration();
 
-        System.out.println("Q Learning");
-        dl.logQLearning(100, 100);
-
-        System.exit(0);
+//        System.out.println("Q Learning");
+//        dl.logQLearning(5, 100);
     }
 }
