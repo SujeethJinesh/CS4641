@@ -53,7 +53,7 @@ six==1.10.0
 statistics==1.0.3.5
 subprocess32==3.5.2
 TBB==0.1
-tensorflow==1.2.1
+tensorflow==1.15.4
 tflearn==0.3.2
 traitlets==4.3.2
 urllib3==1.22
